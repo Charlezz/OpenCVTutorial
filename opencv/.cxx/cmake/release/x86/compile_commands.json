@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/Users/charles/Documents/Dev/Android/OpenCVTutorial/opencv/.cxx/cmake/release/x86",
+  "command": "/Users/charles/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/Users/charles/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/charles/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64/sysroot    -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O2 -DNDEBUG  -fPIC   -o CMakeFiles/opencv_jni_shared.dir/dummy.cpp.o -c /Users/charles/Documents/Dev/Android/OpenCVTutorial/opencv/libcxx_helper/dummy.cpp",
+  "file": "/Users/charles/Documents/Dev/Android/OpenCVTutorial/opencv/libcxx_helper/dummy.cpp"
+}
+]

@@ -1,0 +1,42 @@
+{
+  "stringTable": {
+    "0": "/Users/charles/Documents/Dev/Android/OpenCVTutorial/opencv/.cxx/cmake/release/armeabi-v7a",
+    "1": "--target=armv7-none-linux-androideabi21 --gcc-toolchain=/Users/charles/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/charles/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security -Oz -DNDEBUG -fPIC"
+  },
+  "buildFiles": [
+    "/Users/charles/Documents/Dev/Android/OpenCVTutorial/opencv/libcxx_helper/CMakeLists.txt",
+    "/Users/charles/Library/Android/sdk/ndk/21.1.6352462/build/cmake/android.toolchain.cmake",
+    "/Users/charles/Library/Android/sdk/ndk/21.1.6352462/build/cmake/platforms.cmake"
+  ],
+  "cleanCommands": [
+    "/Users/charles/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja -C \"/Users/charles/Documents/Dev/Android/OpenCVTutorial/opencv/.cxx/cmake/release/armeabi-v7a\" clean"
+  ],
+  "buildTargetsCommand": "/Users/charles/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja  -C \"/Users/charles/Documents/Dev/Android/OpenCVTutorial/opencv/.cxx/cmake/release/armeabi-v7a\" {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "opencv_jni_shared-Release-armeabi-v7a": {
+      "buildCommand": "/Users/charles/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja -C \"/Users/charles/Documents/Dev/Android/OpenCVTutorial/opencv/.cxx/cmake/release/armeabi-v7a\" opencv_jni_shared",
+      "buildType": "release",
+      "toolchain": "3655683737",
+      "abi": "armeabi-v7a",
+      "artifactName": "opencv_jni_shared",
+      "files": [
+        {
+          "src": "/Users/charles/Documents/Dev/Android/OpenCVTutorial/opencv/libcxx_helper/dummy.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        }
+      ],
+      "headers": [],
+      "output": "/Users/charles/Documents/Dev/Android/OpenCVTutorial/opencv/.cxx/cmake/release/armeabi-v7a/libopencv_jni_shared.a"
+    }
+  },
+  "toolchains": {
+    "3655683737": {
+      "cppCompilerExecutable": "/Users/charles/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}

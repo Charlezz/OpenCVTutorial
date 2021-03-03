@@ -13,11 +13,29 @@
         <action
             android:id="@+id/action_mainFragment_to_imageInfoFragment"
             app:destination="@id/imageInfoFragment" />
+
+        <action
+            android:id="@+id/action_mainFragment_to_imageChannelFragment"
+            app:destination="@id/imageChannelFragment" />
+
+        <action
+            android:id="@+id/action_mainFragment_to_simpleMaskFragment"
+            app:destination="@id/simpleMaskFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/imageInfoFragment"
-        android:name="com.charlezz.opencvtutorial.ImageInfoFragment"
+        android:name="com.charlezz.opencvtutorial.features.ImageInfoFragment"
         android:label="ImageInfoFragment" />
+
+    <fragment
+        android:id="@+id/imageChannelFragment"
+        android:name="com.charlezz.opencvtutorial.features.ImageChannelFragment"
+        android:label="ImageChannelFragment" />
+
+    <fragment
+        android:id="@+id/simpleMaskFragment"
+        android:name="com.charlezz.opencvtutorial.features.SimpleMaskFragment"
+        android:label="SimpleMaskFragment" />
 
 </navigation>

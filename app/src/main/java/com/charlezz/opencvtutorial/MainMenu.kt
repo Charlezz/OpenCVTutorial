@@ -10,7 +10,16 @@ enum class MainMenu(
 ) {
 
     IMAGE_INFO(
-        "Image Information",
+        "이미지 속성 확인",
         MainMenuFragmentDirections.actionMainFragmentToImageInfoFragment()
+    ),
+    IMAGE_CHANNEL(
+        "이미지 채널별 분리",
+        MainMenuFragmentDirections.actionMainFragmentToImageChannelFragment()
+    ),
+    SIMPLE_MASK(
+        "간단한 마스크 연산",
+        MainMenuFragmentDirections.actionMainFragmentToSimpleMaskFragment()
     )
+
 }

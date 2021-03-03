@@ -7,27 +7,22 @@
 
         <variable
             name="item"
-            type="com.charlezz.opencvtutorial.MainMenuItem" />
+            type="com.charlezz.opencvtutorial.ImageItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="@{v->item.navigator.navigateTo(item.menu.direction)}">
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/title"
+        <ImageView
+            android:id="@+id/image"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@color/point_color"
-            android:padding="15dp"
-            android:text="@{item.menu.title}"
+            android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Menu" />
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

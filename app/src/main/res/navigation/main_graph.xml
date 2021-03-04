@@ -21,6 +21,10 @@
         <action
             android:id="@+id/action_mainFragment_to_simpleMaskFragment"
             app:destination="@id/simpleMaskFragment" />
+
+        <action
+            android:id="@+id/action_mainFragment_to_drawingFragment"
+            app:destination="@id/drawingFragment" />
     </fragment>
 
     <fragment
@@ -37,5 +41,10 @@
         android:id="@+id/simpleMaskFragment"
         android:name="com.charlezz.opencvtutorial.features.SimpleMaskFragment"
         android:label="SimpleMaskFragment" />
+
+    <fragment
+        android:id="@+id/drawingFragment"
+        android:name="com.charlezz.opencvtutorial.features.DrawingFragment"
+        android:label="DrawingFragment" />
 
 </navigation>

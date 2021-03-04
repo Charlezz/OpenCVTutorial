@@ -11,7 +11,9 @@ import com.charlezz.opencvtutorial.databinding.FragmentImageInfoBinding
 import com.charlezz.pickle.SingleConfig
 import com.charlezz.pickle.getPickleForSingle
 import dagger.hilt.android.AndroidEntryPoint
+import org.opencv.core.Core
 import org.opencv.imgcodecs.Imgcodecs
+import org.opencv.imgproc.Imgproc
 import java.lang.StringBuilder
 import javax.inject.Inject
 
@@ -39,6 +41,7 @@ class ImageInfoFragment : Fragment() {
                 .appendLine("height = ${mat.height()}")
                 .appendLine("pixels = ${mat.total()}")
                 .appendLine("type = ${mat.type()}")
+                .appendLine("channels = ${mat.channels()}")
                 .toString()
 
             binding.info.text = info

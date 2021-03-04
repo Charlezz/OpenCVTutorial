@@ -20,6 +20,10 @@ enum class MainMenu(
     SIMPLE_MASK(
         "간단한 마스크 연산",
         MainMenuFragmentDirections.actionMainFragmentToSimpleMaskFragment()
+    ),
+    DRWAING(
+        "그리기",
+        MainMenuFragmentDirections.actionMainFragmentToDrawingFragment()
     )
 
 }

@@ -24,6 +24,11 @@ enum class MainMenu(
     DRWAING(
         "그리기",
         MainMenuFragmentDirections.actionMainFragmentToDrawingFragment()
+    ),
+    VIDEO_CAPUTRE(
+        "비디오 캡쳐",
+        MainMenuFragmentDirections.actionMainFragmentToVideoCaptureFragment()
     )
+
 
 }

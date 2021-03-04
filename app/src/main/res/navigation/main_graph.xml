@@ -9,7 +9,7 @@
         android:id="@+id/mainFragment"
         android:name="com.charlezz.opencvtutorial.MainMenuFragment"
         android:label="MainFragment"
-        tools:layout="@layout/fragment_main" >
+        tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/action_mainFragment_to_imageInfoFragment"
             app:destination="@id/imageInfoFragment" />
@@ -25,6 +25,10 @@
         <action
             android:id="@+id/action_mainFragment_to_drawingFragment"
             app:destination="@id/drawingFragment" />
+
+        <action
+            android:id="@+id/action_mainFragment_to_videoCaptureFragment"
+            app:destination="@id/videoCaptureFragment" />
     </fragment>
 
     <fragment
@@ -46,5 +50,10 @@
         android:id="@+id/drawingFragment"
         android:name="com.charlezz.opencvtutorial.features.DrawingFragment"
         android:label="DrawingFragment" />
+
+    <fragment
+        android:id="@+id/videoCaptureFragment"
+        android:name="com.charlezz.opencvtutorial.features.VideoCaptureFragment"
+        android:label="VideoCaptureFragment" />
 
 </navigation>

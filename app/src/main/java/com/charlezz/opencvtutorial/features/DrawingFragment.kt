@@ -23,6 +23,7 @@ import org.opencv.android.Utils
 import org.opencv.core.*
 import org.opencv.imgcodecs.Imgcodecs
 import org.opencv.imgproc.Imgproc
+import org.opencv.videoio.VideoCapture
 import javax.inject.Inject
 import kotlin.math.abs
 import kotlin.math.sqrt

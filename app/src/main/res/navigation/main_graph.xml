@@ -33,6 +33,10 @@
             android:id="@+id/action_mainFragment_to_histogramFragment"
             app:destination="@id/histogramFragment" />
 
+        <action
+            android:id="@+id/action_mainFragment_to_brightnessFragment"
+            app:destination="@id/brightnessFragment" />
+
     </fragment>
 
     <fragment
@@ -64,5 +68,9 @@
         android:id="@+id/histogramFragment"
         android:name="com.charlezz.opencvtutorial.features.HistogramFragment"
         android:label="histogramFragment" />
+    <fragment
+        android:id="@+id/brightnessFragment"
+        android:name="com.charlezz.opencvtutorial.features.BrightnessFragment"
+        android:label="brightnessFragment" />
 
 </navigation>

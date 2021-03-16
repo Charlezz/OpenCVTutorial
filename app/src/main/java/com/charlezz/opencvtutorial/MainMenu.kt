@@ -29,6 +29,10 @@ enum class MainMenu(
         "비디오 캡쳐",
         MainMenuFragmentDirections.actionMainFragmentToVideoCaptureFragment()
     ),
+    BRIGHTNESS(
+        "밝기 조절",
+        MainMenuFragmentDirections.actionMainFragmentToBrightnessFragment()
+    ),
     HISTOGRAM(
         "히스토그램",
         MainMenuFragmentDirections.actionMainFragmentToHistogramFragment()

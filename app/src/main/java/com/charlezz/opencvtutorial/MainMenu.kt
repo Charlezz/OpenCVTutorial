@@ -28,6 +28,10 @@ enum class MainMenu(
     VIDEO_CAPUTRE(
         "비디오 캡쳐",
         MainMenuFragmentDirections.actionMainFragmentToVideoCaptureFragment()
+    ),
+    HISTOGRAM(
+        "히스토그램",
+        MainMenuFragmentDirections.actionMainFragmentToHistogramFragment()
     )
 
 

@@ -23,7 +23,7 @@ import java.lang.StringBuilder
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class ImageChannelFragment: Fragment() {
+class ImageChannelFragment : Fragment() {
 
     @Inject
     lateinit var cacheUtil: CacheUtil
@@ -32,7 +32,7 @@ class ImageChannelFragment: Fragment() {
     lateinit var bitmapUtil: BitmapUtil
 
     @Inject
-    lateinit var adapter:GroupieAdapter
+    lateinit var adapter: GroupieAdapter
 
     private var _binding: FragmentImageChannelBinding? = null
     private val binding get() = _binding!!
@@ -45,8 +45,8 @@ class ImageChannelFragment: Fragment() {
             val channel = ArrayList<Mat>(3)
             Core.split(mat, channel)
 
-            channel.forEach {mat->
-                bitmapUtil.bitmapFrom(mat)?.let { bitmap->
+            channel.forEach { mat ->
+                bitmapUtil.bitmapFrom(mat)?.let { bitmap ->
                     adapter.add(ImageItem(bitmap))
                 }
             }

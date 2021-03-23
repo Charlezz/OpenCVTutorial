@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="initial_range_hue">
+        <item>50.0</item>
+        <item>80.0</item>
+    </array>
+
+    <array name="initial_range_saturate">
+        <item>150.0</item>
+        <item>255.0</item>
+    </array>
+
+    <array name="initial_range_value">
+        <item>100.0</item>
+        <item>255.0</item>
+    </array>
+</resources>

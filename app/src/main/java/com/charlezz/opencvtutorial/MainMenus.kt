@@ -42,10 +42,17 @@ sealed class MainMenus{
         MainMenuFragmentDirections.actionMainFragmentToArithmeticFragment(),
         6
     )
+    object HSVColor: Menu(
+        "HSV로 특정 색상 검출",
+        MainMenuFragmentDirections.actionMainFragmentToHsvColorFragment(),
+        7
+    )
     object Histogram: Menu(
         "히스토그램",
         MainMenuFragmentDirections.actionMainFragmentToHistogramFragment(),
-        7
+        8
     )
+
+
 
 }

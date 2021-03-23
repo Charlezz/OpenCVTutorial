@@ -40,6 +40,9 @@
         <action
             android:id="@+id/action_mainFragment_to_arithmeticFragment"
             app:destination="@id/arithmeticFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_hsvColorFragment"
+            app:destination="@id/hsvColorFragment" />
 
     </fragment>
 
@@ -112,5 +115,11 @@
         android:id="@+id/absDiffOperationFragment"
         android:name="com.charlezz.opencvtutorial.features.arithmetic.AbsDiffOperationFragment"
         android:label="absDiffOperationFragment" />
+
+    <fragment
+        android:id="@+id/hsvColorFragment"
+        android:name="com.charlezz.opencvtutorial.features.HSVColorFragment"
+        android:label="hsvColorFragment"
+        />
 
 </navigation>

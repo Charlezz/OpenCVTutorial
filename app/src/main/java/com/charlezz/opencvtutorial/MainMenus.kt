@@ -53,6 +53,12 @@ sealed class MainMenus{
         8
     )
 
+    object ChromaKey: Menu(
+        "크로마키 예제",
+        MainMenuFragmentDirections.actionMainFragmentToChromaKeyFragment(),
+        9
+    )
+
 
 
 }

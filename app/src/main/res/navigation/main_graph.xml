@@ -43,6 +43,9 @@
         <action
             android:id="@+id/action_mainFragment_to_hsvColorFragment"
             app:destination="@id/hsvColorFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_chromaKeyFragment"
+            app:destination="@id/chromaKeyFragment" />
 
     </fragment>
 
@@ -120,6 +123,13 @@
         android:id="@+id/hsvColorFragment"
         android:name="com.charlezz.opencvtutorial.features.HSVColorFragment"
         android:label="hsvColorFragment"
+        />
+
+
+    <fragment
+        android:id="@+id/chromaKeyFragment"
+        android:name="com.charlezz.opencvtutorial.features.ChromaKeyFragment"
+        android:label="chromaKeyFragment"
         />
 
 </navigation>

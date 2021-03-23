@@ -25,12 +25,12 @@ import javax.inject.Inject
 class VideoCaptureFragment : Fragment() {
 
     @Inject
-    lateinit var bitmapUtil:BitmapUtil
+    lateinit var bitmapUtil: BitmapUtil
 
     private var _binding: FragmentVideoCaptureBinding? = null
     private val binding get() = _binding!!
 
-    private val file :File by lazy{
+    private val file: File by lazy {
         File(requireContext().filesDir, "sample.mp4")
     }
 
@@ -51,22 +51,25 @@ class VideoCaptureFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val videoCapture = VideoCapture(file.absolutePath)
+        val videoCapture = VideoCapture()
         val isOpened = videoCapture.open(file.absolutePath)
         if (isOpened) {
-            val width = videoCapture.get(Videoio.CAP_PROP_FRAME_WIDTH).toInt()
-            val height = videoCapture.get(Videoio.CAP_PROP_FRAME_HEIGHT).toInt()
-            val mat = Mat.zeros(width, height, CvType.CV_8UC3)
+            val mat = Mat()
             lifecycleScope.launch {
-                while(true){
-                    delay(500)
-                    if(videoCapture.read(mat)){
-                        binding.image.setImageBitmap(bitmapUtil.bitmapFrom(mat))
-                    }else{
-                        videoCapture.release()
-                    }
+                val fps = videoCapture.get(Videoio.CAP_PROP_FPS)
+                val delayDuration = if (fps == 0.0) {
+                    33L //fps값을 못 얻어오는 경우 33으로 딜레이 고정
+                } else {
+                    (1000.0 / fps).toLong()
+
                 }
 
+                while (videoCapture.read(mat)) {
+                    binding.image.setImageBitmap(bitmapUtil.bitmapFrom(mat))
+                    delay(delayDuration)
+                }
+                videoCapture.release()
+                Toast.makeText(requireContext(), "영상 종료", Toast.LENGTH_SHORT).show()
             }
 
         } else {

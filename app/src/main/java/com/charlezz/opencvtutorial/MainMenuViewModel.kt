@@ -6,16 +6,19 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.navigation.NavDirections
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
+import kotlin.reflect.KClass
 
 @HiltViewModel
 class MainMenuViewModel @Inject constructor(
     app: Application,
     savedStateHandle: SavedStateHandle
-) : AndroidViewModel(app), MainMenuItem.Navigator {
+) : AndroidViewModel(app), MenuItem.Navigator {
 
     val navigateEvent = SingleLiveEvent<NavDirections>()
 
-    val items: List<MainMenuItem> = MainMenu.values().map { MainMenuItem(it, this) }
+    val items: List<MenuItem> = MainMenus::class.nestedClasses
+        .sortedBy { menuKclass-> (menuKclass.objectInstance as Menu).order }
+        .map{ kClass-> MenuItem((kClass.objectInstance as Menu), this) }
 
     override fun navigateTo(directions: NavDirections) {
         navigateEvent.value = directions

@@ -50,8 +50,8 @@ class MainMenuFragment : Fragment() {
     }
 
     override fun onDestroyView() {
-        binding.recyclerView.adapter = null
         super.onDestroyView()
+        binding.recyclerView.adapter = null
         _binding = null
     }
 }

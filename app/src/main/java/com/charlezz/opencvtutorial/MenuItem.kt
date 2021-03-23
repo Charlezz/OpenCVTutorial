@@ -1,13 +1,12 @@
 package com.charlezz.opencvtutorial
 
 import android.view.View
-import androidx.annotation.NavigationRes
 import androidx.navigation.NavDirections
 import com.charlezz.opencvtutorial.databinding.ItemMainMenuBinding
 import com.xwray.groupie.viewbinding.BindableItem
 
-class MainMenuItem(
-    val menu: MainMenu,
+class MenuItem(
+    val menu: Menu,
     val navigator: Navigator
 ) : BindableItem<ItemMainMenuBinding>() {
     override fun bind(viewBinding: ItemMainMenuBinding, position: Int) {

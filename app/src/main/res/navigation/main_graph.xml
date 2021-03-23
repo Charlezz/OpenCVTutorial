@@ -37,6 +37,10 @@
             android:id="@+id/action_mainFragment_to_brightnessFragment"
             app:destination="@id/brightnessFragment" />
 
+        <action
+            android:id="@+id/action_mainFragment_to_arithmeticFragment"
+            app:destination="@id/arithmeticFragment" />
+
     </fragment>
 
     <fragment
@@ -72,5 +76,41 @@
         android:id="@+id/brightnessFragment"
         android:name="com.charlezz.opencvtutorial.features.BrightnessFragment"
         android:label="brightnessFragment" />
+
+    <fragment
+        android:id="@+id/arithmeticFragment"
+        android:name="com.charlezz.opencvtutorial.features.ArithmeticMenuFragment"
+        android:label="arithmeticFragment" >
+        <action
+            android:id="@+id/action_arithmeticFragment_to_addOperationFragment"
+            app:destination="@id/addOperationFragment" />
+        <action
+            android:id="@+id/action_arithmeticFragment_to_addWeightedOperationFragment"
+            app:destination="@id/addWeightedOperationFragment" />
+        <action
+            android:id="@+id/action_arithmeticFragment_to_subtractOperationFragment"
+            app:destination="@id/subtractOperationFragment" />
+        <action
+            android:id="@+id/action_arithmeticFragment_to_absDiffOperationFragment"
+            app:destination="@id/absDiffOperationFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addOperationFragment"
+        android:name="com.charlezz.opencvtutorial.features.arithmetic.AddOperationFragment"
+        android:label="addOperationFragment" />
+
+    <fragment
+        android:id="@+id/addWeightedOperationFragment"
+        android:name="com.charlezz.opencvtutorial.features.arithmetic.AddWeightedOperationFragment"
+        android:label="addWeightedOperationFragment" />
+    <fragment
+        android:id="@+id/subtractOperationFragment"
+        android:name="com.charlezz.opencvtutorial.features.arithmetic.SubtractOperationFragment"
+        android:label="subtractOperationFragment" />
+    <fragment
+        android:id="@+id/absDiffOperationFragment"
+        android:name="com.charlezz.opencvtutorial.features.arithmetic.AbsDiffOperationFragment"
+        android:label="absDiffOperationFragment" />
 
 </navigation>

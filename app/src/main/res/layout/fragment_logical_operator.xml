@@ -61,7 +61,6 @@
             <ImageView
                 android:id="@+id/and"
                 android:layout_width="0dp"
-                android:layout_margin="1dp"
                 android:layout_height="0dp"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintLeft_toLeftOf="@id/txt_image1"
@@ -71,7 +70,6 @@
             <ImageView
                 android:id="@+id/or"
                 android:layout_width="0dp"
-                android:layout_margin="1dp"
                 android:layout_height="0dp"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintLeft_toLeftOf="@id/txt_image2"
@@ -104,7 +102,6 @@
             <ImageView
                 android:id="@+id/xor"
                 android:layout_width="0dp"
-                android:layout_margin="1dp"
                 android:layout_height="0dp"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintLeft_toLeftOf="@id/txt_and"
@@ -114,7 +111,6 @@
             <ImageView
                 android:id="@+id/not"
                 android:layout_width="0dp"
-                android:layout_margin="1dp"
                 android:layout_height="0dp"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintLeft_toLeftOf="@id/txt_or"

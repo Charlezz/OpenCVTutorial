@@ -14,6 +14,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import org.opencv.android.Utils
 import org.opencv.core.Core
 import org.opencv.core.Mat
+import org.opencv.core.Scalar
 import org.opencv.imgcodecs.Imgcodecs
 import org.opencv.imgproc.Imgproc
 import javax.inject.Inject

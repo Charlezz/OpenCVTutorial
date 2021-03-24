@@ -42,6 +42,11 @@ sealed class MainMenus{
         MainMenuFragmentDirections.actionMainFragmentToArithmeticFragment(),
         6
     )
+    object Logical: Menu(
+        "논리 연산",
+        MainMenuFragmentDirections.actionMainFragmentToLogicalOperatorFragment(),
+        6
+    )
     object HSVColor: Menu(
         "HSV로 특정 색상 검출",
         MainMenuFragmentDirections.actionMainFragmentToHsvColorFragment(),

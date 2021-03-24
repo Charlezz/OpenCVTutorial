@@ -46,6 +46,9 @@
         <action
             android:id="@+id/action_mainFragment_to_chromaKeyFragment"
             app:destination="@id/chromaKeyFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_logicalOperatorFragment"
+            app:destination="@id/logicalOperatorFragment" />
 
     </fragment>
 
@@ -130,6 +133,12 @@
         android:id="@+id/chromaKeyFragment"
         android:name="com.charlezz.opencvtutorial.features.ChromaKeyFragment"
         android:label="chromaKeyFragment"
+        />
+
+    <fragment
+        android:id="@+id/logicalOperatorFragment"
+        android:name="com.charlezz.opencvtutorial.features.LogicalOperatorFragment"
+        android:label="LogicalOperatorFragment"
         />
 
 </navigation>

@@ -24,6 +24,7 @@
             android:id="@+id/composite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="스위치를 눌러 모니터를 켜자!"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginBottom="16dp"

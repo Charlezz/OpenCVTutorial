@@ -57,11 +57,16 @@ sealed class MainMenus{
         MainMenuFragmentDirections.actionMainFragmentToHistogramFragment(),
         8
     )
+    object BackProject: Menu(
+        "히스토그램 역투영",
+        MainMenuFragmentDirections.actionMainFragmentToBackProjectFragment(),
+        9
+    )
 
     object ChromaKey: Menu(
         "크로마키 예제",
         MainMenuFragmentDirections.actionMainFragmentToChromaKeyFragment(),
-        9
+        10
     )
 
 

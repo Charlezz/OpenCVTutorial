@@ -1,4 +1,4 @@
-package com.charlezz.opencvtutorial.features
+package com.charlezz.opencvtutorial.features.basic
 
 import android.graphics.Color
 import android.os.Bundle
@@ -47,7 +47,7 @@ class HistogramFragment : Fragment() {
 
     private fun process(id:Int, isColor:Boolean){
         val src = Utils.loadResource(requireContext(), R.drawable.lenna, if(isColor) Imgcodecs.IMREAD_UNCHANGED else Imgcodecs.IMREAD_GRAYSCALE)
-        val type:Type = findType(id)
+        val type: Type = findType(id)
         type.apply(src, isColor)
         binding.image.setImageBitmap(bitmapUtil.bitmapFrom(src))
         if(isColor){
@@ -221,7 +221,7 @@ class HistogramFragment : Fragment() {
         abstract fun apply(src:Mat,isColor:Boolean)
     }
 
-    fun findType(id:Int):Type{
+    fun findType(id:Int): Type {
         return Type.values().first { type -> type.id == id }
     }
 

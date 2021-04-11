@@ -1,4 +1,4 @@
-package com.charlezz.opencvtutorial.features.arithmetic
+package com.charlezz.opencvtutorial.features.basic.arithmetic
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,57 +7,53 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.charlezz.opencvtutorial.BitmapUtil
 import com.charlezz.opencvtutorial.R
-import com.charlezz.opencvtutorial.databinding.FragmentAddOperationBinding
-import com.charlezz.opencvtutorial.databinding.FragmentBrightnessBinding
-import com.charlezz.opencvtutorial.databinding.FragmentSubtractOperationBinding
+import com.charlezz.opencvtutorial.databinding.FragmentAbsdiffOperationBinding
 import dagger.hilt.android.AndroidEntryPoint
 import org.opencv.android.Utils
 import org.opencv.core.Core
 import org.opencv.core.Mat
-import org.opencv.core.Scalar
 import org.opencv.imgcodecs.Imgcodecs
-import org.opencv.imgproc.Imgproc
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class AddOperationFragment :Fragment(){
+class AbsDiffOperationFragment :Fragment(){
 
     @Inject
-    lateinit var bitmapUtil:BitmapUtil
+    lateinit var bitmapUtil: BitmapUtil
 
-    private var _binding: FragmentAddOperationBinding? = null
+    private var _binding: FragmentAbsdiffOperationBinding? = null
     private val binding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentAddOperationBinding.inflate(inflater, container, false)
+        _binding = FragmentAbsdiffOperationBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val lenna = Utils.loadResource(
+
+        val cctv1 = Utils.loadResource(
             requireContext(),
-            R.drawable.lenna,
+            R.drawable.cctv1,
             Imgcodecs.IMREAD_GRAYSCALE
         )
 
-        val runa = Utils.loadResource(
+        val cctv2 = Utils.loadResource(
             requireContext(),
-            R.drawable.runa,
+            R.drawable.cctv2,
             Imgcodecs.IMREAD_GRAYSCALE
         )
 
-        binding.lenna.setImageBitmap(bitmapUtil.bitmapFrom(lenna))
-        binding.runa.setImageBitmap(bitmapUtil.bitmapFrom(runa))
+        binding.lenna.setImageBitmap(bitmapUtil.bitmapFrom(cctv1))
+        binding.runa.setImageBitmap(bitmapUtil.bitmapFrom(cctv2))
 
 
-        val sum = Mat()
-        Core.add(lenna, runa, sum)
-
-        binding.result.setImageBitmap(bitmapUtil.bitmapFrom(sum))
+        val dst = Mat()
+        Core.absdiff(cctv1, cctv2, dst)
+        binding.result.setImageBitmap(bitmapUtil.bitmapFrom(dst))
     }
 
     override fun onDestroyView() {

@@ -1,74 +1,46 @@
 package com.charlezz.opencvtutorial
 
-import android.graphics.ImageDecoder
-import androidx.annotation.IdRes
-import androidx.annotation.NavigationRes
-import androidx.navigation.NavDirections
+import com.charlezz.opencvtutorial.features.basic.BasicMenus
+import com.charlezz.opencvtutorial.features.experiment.ExperimentMenus
+import com.charlezz.opencvtutorial.features.filtering.FilteringMenus
 
-sealed class MainMenus{
-    object ImageInfo : Menu(
-        "이미지 속성 확인",
-        MainMenuFragmentDirections.actionMainFragmentToImageInfoFragment(),
+sealed class MainMenus {
+
+    object Basic : Menu(
+        title = "기본적인 영상 처리 기법",
+        MenuDirections.from(
+            MenuFragmentDirections.actionMenuFragmentSelf(
+                BasicMenus::class.nestedClasses
+                    .sortedBy { menuKclass -> (menuKclass.objectInstance as Menu).order }
+                    .map { menuKclass -> menuKclass.objectInstance as Menu }
+                    .toTypedArray()
+            )
+        ),
         0
     )
-    object ImageChannels:Menu(
-        "이미지 채널별 분리",
-        MainMenuFragmentDirections.actionMainFragmentToImageChannelFragment(),
+
+    object Filtering : Menu(
+        "필터링",
+        MenuDirections.from(
+            MenuFragmentDirections.actionMenuFragmentSelf(
+                FilteringMenus::class.nestedClasses
+                    .sortedBy { menuKclass -> (menuKclass.objectInstance as Menu).order }
+                    .map { menuKclass -> menuKclass.objectInstance as Menu }
+                    .toTypedArray()
+            )
+        ),
         1
     )
-    object SimpleMask:Menu(
-        "간단한 마스크 연산",
-        MainMenuFragmentDirections.actionMainFragmentToSimpleMaskFragment(),
-        2
-    )
-    object Drawing: Menu(
-        "그리기",
-        MainMenuFragmentDirections.actionMainFragmentToDrawingFragment(),
-        3
-    )
-    object VideoCapture: Menu(
-        "비디오 캡쳐",
-        MainMenuFragmentDirections.actionMainFragmentToVideoCaptureFragment(),
-        4
 
+    object Experiment:Menu(
+        "실험실",
+        MenuDirections.from(
+            MenuFragmentDirections.actionMenuFragmentSelf(
+                ExperimentMenus::class.nestedClasses
+                    .sortedBy { menuKclass -> (menuKclass.objectInstance as Menu).order }
+                    .map { menuKclass -> menuKclass.objectInstance as Menu }
+                    .toTypedArray()
+            )
+        )
     )
-    object Brightness: Menu(
-        "밝기 조절",
-        MainMenuFragmentDirections.actionMainFragmentToBrightnessFragment(),
-        5
-    )
-    object Arithmetic: Menu(
-        "산술 연산",
-        MainMenuFragmentDirections.actionMainFragmentToArithmeticFragment(),
-        6
-    )
-    object Logical: Menu(
-        "논리 연산",
-        MainMenuFragmentDirections.actionMainFragmentToLogicalOperatorFragment(),
-        6
-    )
-    object HSVColor: Menu(
-        "HSV로 특정 색상 검출",
-        MainMenuFragmentDirections.actionMainFragmentToHsvColorFragment(),
-        7
-    )
-    object Histogram: Menu(
-        "히스토그램",
-        MainMenuFragmentDirections.actionMainFragmentToHistogramFragment(),
-        8
-    )
-    object BackProject: Menu(
-        "히스토그램 역투영",
-        MainMenuFragmentDirections.actionMainFragmentToBackProjectFragment(),
-        9
-    )
-
-    object ChromaKey: Menu(
-        "크로마키 예제",
-        MainMenuFragmentDirections.actionMainFragmentToChromaKeyFragment(),
-        10
-    )
-
-
-
 }

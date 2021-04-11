@@ -23,6 +23,6 @@ class MenuItem(
     }
 
     interface Navigator {
-        fun navigateTo(directions: NavDirections)
+        fun navigateTo(menu:Menu)
     }
 }

@@ -1,4 +1,4 @@
-package com.charlezz.opencvtutorial.features.arithmetic
+package com.charlezz.opencvtutorial.features.basic.arithmetic
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,10 +8,7 @@ import android.widget.SeekBar
 import androidx.fragment.app.Fragment
 import com.charlezz.opencvtutorial.BitmapUtil
 import com.charlezz.opencvtutorial.R
-import com.charlezz.opencvtutorial.databinding.FragmentAddOperationBinding
 import com.charlezz.opencvtutorial.databinding.FragmentAddWeightedOperationBinding
-import com.charlezz.opencvtutorial.databinding.FragmentBrightnessBinding
-import com.charlezz.opencvtutorial.databinding.FragmentSubtractOperationBinding
 import dagger.hilt.android.AndroidEntryPoint
 import org.opencv.android.Utils
 import org.opencv.core.Core

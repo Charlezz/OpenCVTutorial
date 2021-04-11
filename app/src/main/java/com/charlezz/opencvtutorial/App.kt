@@ -1,12 +1,14 @@
 package com.charlezz.opencvtutorial
 
 import android.app.Application
+import androidx.camera.camera2.Camera2Config
+import androidx.camera.core.CameraXConfig
 import dagger.hilt.android.HiltAndroidApp
 import org.opencv.android.OpenCVLoader
 import timber.log.Timber
 
 @HiltAndroidApp
-class App : Application() {
+class App : Application(){
 
     init {
         val isIntialized = OpenCVLoader.initDebug()

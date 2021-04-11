@@ -1,7 +1,6 @@
-package com.charlezz.opencvtutorial.features
+package com.charlezz.opencvtutorial.features.basic
 
 import android.os.Bundle
-import android.provider.ContactsContract
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +9,6 @@ import com.charlezz.opencvtutorial.BitmapUtil
 import com.charlezz.opencvtutorial.databinding.FragmentLogicalOperatorBinding
 import dagger.hilt.android.AndroidEntryPoint
 import org.opencv.core.*
-import org.opencv.imgcodecs.Imgcodecs
 import org.opencv.imgproc.Imgproc
 import javax.inject.Inject
 

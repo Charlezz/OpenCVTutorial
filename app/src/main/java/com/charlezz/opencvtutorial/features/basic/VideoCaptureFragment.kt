@@ -1,4 +1,4 @@
-package com.charlezz.opencvtutorial.features
+package com.charlezz.opencvtutorial.features.basic
 
 import android.content.res.AssetManager
 import android.os.Bundle
@@ -11,10 +11,8 @@ import androidx.lifecycle.lifecycleScope
 import com.charlezz.opencvtutorial.BitmapUtil
 import com.charlezz.opencvtutorial.databinding.FragmentVideoCaptureBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import org.opencv.core.CvType
 import org.opencv.core.Mat
 import org.opencv.videoio.VideoCapture
 import org.opencv.videoio.Videoio

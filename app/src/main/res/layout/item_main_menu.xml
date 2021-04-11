@@ -13,7 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="@{v->item.navigator.navigateTo(item.menu.direction)}">
+        android:onClick="@{v->item.navigator.navigateTo(item.menu)}">
 
         <TextView
             android:id="@+id/title"

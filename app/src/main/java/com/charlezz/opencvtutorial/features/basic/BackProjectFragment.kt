@@ -1,7 +1,6 @@
-package com.charlezz.opencvtutorial.features
+package com.charlezz.opencvtutorial.features.basic
 
 import android.annotation.SuppressLint
-import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MotionEvent

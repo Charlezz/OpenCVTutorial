@@ -1,4 +1,4 @@
-package com.charlezz.opencvtutorial.features
+package com.charlezz.opencvtutorial.features.basic
 
 import android.os.Bundle
 import android.view.LayoutInflater

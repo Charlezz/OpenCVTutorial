@@ -1,4 +1,4 @@
-package com.charlezz.opencvtutorial.features
+package com.charlezz.opencvtutorial.features.basic
 
 import android.annotation.SuppressLint
 import android.graphics.Bitmap
@@ -8,22 +8,14 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.charlezz.opencvtutorial.BitmapUtil
 import com.charlezz.opencvtutorial.CacheUtil
-import com.charlezz.opencvtutorial.ImageItem
 import com.charlezz.opencvtutorial.R
 import com.charlezz.opencvtutorial.databinding.FragmentDrawingBinding
-import com.charlezz.opencvtutorial.databinding.FragmentImageChannelBinding
-import com.charlezz.pickle.SingleConfig
-import com.charlezz.pickle.getPickleForSingle
-import com.xwray.groupie.GroupieAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import org.opencv.android.Utils
 import org.opencv.core.*
-import org.opencv.imgcodecs.Imgcodecs
 import org.opencv.imgproc.Imgproc
-import org.opencv.videoio.VideoCapture
 import javax.inject.Inject
 import kotlin.math.abs
 import kotlin.math.sqrt

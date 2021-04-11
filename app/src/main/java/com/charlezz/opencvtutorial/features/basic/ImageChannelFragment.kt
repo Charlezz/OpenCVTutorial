@@ -1,24 +1,26 @@
-package com.charlezz.opencvtutorial.features
+package com.charlezz.opencvtutorial.features.basic
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.charlezz.opencvtutorial.BitmapUtil
 import com.charlezz.opencvtutorial.CacheUtil
-import com.charlezz.opencvtutorial.databinding.FragmentImageInfoBinding
+import com.charlezz.opencvtutorial.ImageItem
+import com.charlezz.opencvtutorial.databinding.FragmentImageChannelBinding
 import com.charlezz.pickle.SingleConfig
 import com.charlezz.pickle.getPickleForSingle
+import com.xwray.groupie.GroupieAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import org.opencv.core.Core
+import org.opencv.core.Mat
 import org.opencv.imgcodecs.Imgcodecs
-import org.opencv.imgproc.Imgproc
-import java.lang.StringBuilder
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class ImageInfoFragment : Fragment() {
+class ImageChannelFragment : Fragment() {
 
     @Inject
     lateinit var cacheUtil: CacheUtil
@@ -26,25 +28,25 @@ class ImageInfoFragment : Fragment() {
     @Inject
     lateinit var bitmapUtil: BitmapUtil
 
-    private var _binding: FragmentImageInfoBinding? = null
+    @Inject
+    lateinit var adapter: GroupieAdapter
+
+    private var _binding: FragmentImageChannelBinding? = null
     private val binding get() = _binding!!
 
     private val pickle = getPickleForSingle { media ->
         media?.getUri()?.let { uri ->
+            adapter.clear()
             val file = cacheUtil.copyFrom(uri)
-            val mat = Imgcodecs.imread(file.absolutePath)
-            val bitmap = bitmapUtil.bitmapFrom(mat)
-            binding.image.setImageBitmap(bitmap)
+            val mat = Imgcodecs.imread(file.absolutePath, Imgcodecs.IMREAD_COLOR)
+            val channel = ArrayList<Mat>(3)
+            Core.split(mat, channel)
 
-            val info = StringBuilder()
-                .appendLine("width = ${mat.width()}")
-                .appendLine("height = ${mat.height()}")
-                .appendLine("pixels = ${mat.total()}")
-                .appendLine("type = ${mat.type()}")
-                .appendLine("channels = ${mat.channels()}")
-                .toString()
-
-            binding.info.text = info
+            channel.forEach { mat ->
+                bitmapUtil.bitmapFrom(mat)?.let { bitmap ->
+                    adapter.add(ImageItem(bitmap))
+                }
+            }
         }
     }
 
@@ -53,7 +55,9 @@ class ImageInfoFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentImageInfoBinding.inflate(inflater, container, false)
+        _binding = FragmentImageChannelBinding.inflate(inflater, container, false)
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerView.adapter = adapter
         return binding.root
     }
 
@@ -68,5 +72,4 @@ class ImageInfoFragment : Fragment() {
         super.onDestroy()
         _binding = null
     }
-
 }

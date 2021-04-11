@@ -1,9 +1,12 @@
 package com.charlezz.opencvtutorial
 
-import androidx.navigation.NavDirections
+import android.os.Bundle
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
-open class Menu constructor(
+@Parcelize
+open class Menu(
     val title: String,
-    val direction: NavDirections,
-    val order:Int = -1
-)
+    val menuDirections: MenuDirections,
+    val order:Int = Int.MAX_VALUE
+):Parcelable

@@ -1,4 +1,4 @@
-package com.charlezz.opencvtutorial.features.arithmetic
+package com.charlezz.opencvtutorial.features.basic.arithmetic
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,54 +7,56 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.charlezz.opencvtutorial.BitmapUtil
 import com.charlezz.opencvtutorial.R
-import com.charlezz.opencvtutorial.databinding.FragmentAbsdiffOperationBinding
-import com.charlezz.opencvtutorial.databinding.FragmentBrightnessBinding
 import com.charlezz.opencvtutorial.databinding.FragmentSubtractOperationBinding
 import dagger.hilt.android.AndroidEntryPoint
 import org.opencv.android.Utils
 import org.opencv.core.Core
 import org.opencv.core.Mat
+import org.opencv.core.Size
 import org.opencv.imgcodecs.Imgcodecs
+import org.opencv.imgproc.Imgproc
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class AbsDiffOperationFragment :Fragment(){
+class SubtractOperationFragment :Fragment(){
 
     @Inject
     lateinit var bitmapUtil: BitmapUtil
 
-    private var _binding: FragmentAbsdiffOperationBinding? = null
+    private var _binding: FragmentSubtractOperationBinding? = null
     private val binding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentAbsdiffOperationBinding.inflate(inflater, container, false)
+        _binding = FragmentSubtractOperationBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val cctv1 = Utils.loadResource(
+        val lenna = Utils.loadResource(
             requireContext(),
-            R.drawable.cctv1,
+            R.drawable.lenna,
             Imgcodecs.IMREAD_GRAYSCALE
         )
 
-        val cctv2 = Utils.loadResource(
+        val hole = Utils.loadResource(
             requireContext(),
-            R.drawable.cctv2,
+            R.drawable.hole,
             Imgcodecs.IMREAD_GRAYSCALE
         )
 
-        binding.lenna.setImageBitmap(bitmapUtil.bitmapFrom(cctv1))
-        binding.runa.setImageBitmap(bitmapUtil.bitmapFrom(cctv2))
+        binding.image1.setImageBitmap(bitmapUtil.bitmapFrom(lenna))
+        binding.image2.setImageBitmap(bitmapUtil.bitmapFrom(hole))
 
 
         val dst = Mat()
-        Core.absdiff(cctv1, cctv2, dst)
+        Imgproc.resize(hole, hole, Size(512.0,512.0))
+        Core.subtract(lenna, hole, dst)
+
         binding.result.setImageBitmap(bitmapUtil.bitmapFrom(dst))
     }
 

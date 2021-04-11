@@ -4,6 +4,10 @@
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
+    <!--.any없이 카메라를 사용하면 후면 카메라가 없을 때 동작하지 않는다.-->
+    <uses-feature android:name="android.hardware.camera.any" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+
     <application
         android:name=".App"
         android:allowBackup="true"

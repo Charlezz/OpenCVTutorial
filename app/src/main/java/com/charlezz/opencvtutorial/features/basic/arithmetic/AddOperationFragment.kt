@@ -1,4 +1,4 @@
-package com.charlezz.opencvtutorial.features.arithmetic
+package com.charlezz.opencvtutorial.features.basic.arithmetic
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,57 +7,53 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.charlezz.opencvtutorial.BitmapUtil
 import com.charlezz.opencvtutorial.R
-import com.charlezz.opencvtutorial.databinding.FragmentSubtractOperationBinding
+import com.charlezz.opencvtutorial.databinding.FragmentAddOperationBinding
 import dagger.hilt.android.AndroidEntryPoint
 import org.opencv.android.Utils
 import org.opencv.core.Core
 import org.opencv.core.Mat
-import org.opencv.core.Size
 import org.opencv.imgcodecs.Imgcodecs
-import org.opencv.imgproc.Imgproc
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class SubtractOperationFragment :Fragment(){
+class AddOperationFragment :Fragment(){
 
     @Inject
-    lateinit var bitmapUtil: BitmapUtil
+    lateinit var bitmapUtil:BitmapUtil
 
-    private var _binding: FragmentSubtractOperationBinding? = null
+    private var _binding: FragmentAddOperationBinding? = null
     private val binding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentSubtractOperationBinding.inflate(inflater, container, false)
+        _binding = FragmentAddOperationBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val lenna = Utils.loadResource(
             requireContext(),
             R.drawable.lenna,
             Imgcodecs.IMREAD_GRAYSCALE
         )
 
-        val hole = Utils.loadResource(
+        val runa = Utils.loadResource(
             requireContext(),
-            R.drawable.hole,
+            R.drawable.runa,
             Imgcodecs.IMREAD_GRAYSCALE
         )
 
-        binding.image1.setImageBitmap(bitmapUtil.bitmapFrom(lenna))
-        binding.image2.setImageBitmap(bitmapUtil.bitmapFrom(hole))
+        binding.lenna.setImageBitmap(bitmapUtil.bitmapFrom(lenna))
+        binding.runa.setImageBitmap(bitmapUtil.bitmapFrom(runa))
 
 
-        val dst = Mat()
-        Imgproc.resize(hole, hole, Size(512.0,512.0))
-        Core.subtract(lenna, hole, dst)
+        val sum = Mat()
+        Core.add(lenna, runa, sum)
 
-        binding.result.setImageBitmap(bitmapUtil.bitmapFrom(dst))
+        binding.result.setImageBitmap(bitmapUtil.bitmapFrom(sum))
     }
 
     override fun onDestroyView() {

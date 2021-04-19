@@ -9,7 +9,11 @@ sealed class FilteringMenus {
 
     object Filter2D : Menu(
         "기본적인 필터 적용",
-        MenuDirections.from(MenuFragmentDirections.actionMenuFragmentToFilter2dFragment()),
+        MenuDirections.from(
+            MenuFragmentDirections.actionMenuFragmentToSingleProcessFragment(
+                Filter2DProcessor()
+            )
+        ),
         0
     )
 

@@ -72,11 +72,11 @@
             android:id="@+id/action_menuFragment_to_absDiffOperationFragment"
             app:destination="@id/absDiffOperationFragment" />
         <action
-            android:id="@+id/action_menuFragment_to_filter2dFragment"
-            app:destination="@id/filter2dFragment" />
-        <action
             android:id="@+id/action_menuFragment_to_cameraXFragment"
             app:destination="@id/cameraXFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_singleProcessFragment"
+            app:destination="@id/singleProcessFragment" />
 
 
     </fragment>
@@ -160,15 +160,19 @@
 
 
     <fragment
-        android:id="@+id/filter2dFragment"
-        android:name="com.charlezz.opencvtutorial.features.filtering.Filter2dFragment"
-        android:label="기본적인 필터 적용"
-        />
-
-    <fragment
         android:id="@+id/cameraXFragment"
         android:name="com.charlezz.opencvtutorial.features.experiment.CameraXFragment"
         android:label="CameraX 테스트"
         />
+
+    <fragment
+        android:id="@+id/singleProcessFragment"
+        android:name="com.charlezz.opencvtutorial.features.common.SingleProcessFragment"
+        android:label="SingleProcessFragment"
+        >
+        <argument
+            android:name="processor"
+            app:argType="com.charlezz.opencvtutorial.features.common.Processor" />
+    </fragment>
 
 </navigation>

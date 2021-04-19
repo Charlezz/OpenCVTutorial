@@ -69,4 +69,38 @@ sealed class FilteringMenus {
         4
     )
 
+    object BilateralFilter: Menu(
+        "양방향 필터 적용하기",
+        MenuDirections.from(
+            MenuFragmentDirections.actionMenuFragmentToSingleProcessFragment(
+                MedianFilterProcessor(),
+                R.drawable.lenna,
+                Imgcodecs.IMREAD_COLOR
+            )
+        ),
+        5
+    )
+
+    object CartoonFilter: Menu(
+        "카툰 필터 적용하기",
+        MenuDirections.from(
+            MenuFragmentDirections.actionMenuFragmentToRealtimeProcessFragment(
+                CartoonFilterProcessor(),
+                frontCamera = true
+            )
+        ),
+        6
+    )
+
+    object SketchFilter: Menu(
+        "스케치 필터 적용하기",
+        MenuDirections.from(
+            MenuFragmentDirections.actionMenuFragmentToRealtimeProcessFragment(
+                SketchFilterProcessor(),
+                frontCamera = true
+            )
+        ),
+        7
+    )
+
 }

@@ -13,9 +13,9 @@
 
         <argument
             android:name="menus"
+            android:defaultValue="@null"
             app:argType="com.charlezz.opencvtutorial.Menu[]"
-            app:nullable="true"
-            android:defaultValue="@null" />
+            app:nullable="true" />
 
         <action
             android:id="@+id/action_menuFragment_to_imageInfoFragment"
@@ -77,6 +77,9 @@
         <action
             android:id="@+id/action_menuFragment_to_singleProcessFragment"
             app:destination="@id/singleProcessFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_realtimeProcessFragment"
+            app:destination="@id/realtimeProcessFragment" />
 
 
     </fragment>
@@ -136,51 +139,58 @@
     <fragment
         android:id="@+id/hsvColorFragment"
         android:name="com.charlezz.opencvtutorial.features.basic.HSVColorFragment"
-        android:label="HSV 컬러 공간"
-        />
+        android:label="HSV 컬러 공간" />
 
 
     <fragment
         android:id="@+id/chromaKeyFragment"
         android:name="com.charlezz.opencvtutorial.features.basic.ChromaKeyFragment"
-        android:label="크로마키"
-        />
+        android:label="크로마키" />
 
     <fragment
         android:id="@+id/logicalOperatorFragment"
         android:name="com.charlezz.opencvtutorial.features.basic.LogicalOperatorFragment"
-        android:label="논리 연산"
-        />
+        android:label="논리 연산" />
 
     <fragment
         android:id="@+id/backProjectFragment"
         android:name="com.charlezz.opencvtutorial.features.basic.BackProjectFragment"
-        android:label="히스토그램 역투영"
-        />
+        android:label="히스토그램 역투영" />
 
 
     <fragment
         android:id="@+id/cameraXFragment"
         android:name="com.charlezz.opencvtutorial.features.experiment.CameraXFragment"
-        android:label="CameraX 테스트"
-        />
+        android:label="CameraX 테스트" />
 
     <fragment
         android:id="@+id/singleProcessFragment"
         android:name="com.charlezz.opencvtutorial.features.common.SingleProcessFragment"
-        android:label="SingleProcessFragment"
-        >
+        android:label="SingleProcessFragment">
         <argument
             android:name="processor"
             app:argType="com.charlezz.opencvtutorial.features.common.Processor" />
         <argument
             android:name="image"
-            app:argType="reference"
-            android:defaultValue="@drawable/lenna" />
+            android:defaultValue="@drawable/lenna"
+            app:argType="reference" />
         <argument
             android:name="imreadMode"
             app:argType="integer" />
 
+    </fragment>
+
+    <fragment
+        android:id="@+id/realtimeProcessFragment"
+        android:name="com.charlezz.opencvtutorial.features.common.RealtimeProcessFragment"
+        android:label="RealtimeProcessFragment">
+
+        <argument
+            android:name="processor"
+            app:argType="com.charlezz.opencvtutorial.features.common.Processor" />
+        <argument
+            android:name="frontCamera"
+            app:argType="boolean" />
     </fragment>
 
 </navigation>

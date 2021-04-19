@@ -8,13 +8,33 @@ import com.charlezz.opencvtutorial.features.basic.arithmetic.ArithmeticMenus
 sealed class FilteringMenus {
 
     object Filter2D : Menu(
-        "기본적인 필터 적용",
+        "기본적인 필터 적용하기",
         MenuDirections.from(
             MenuFragmentDirections.actionMenuFragmentToSingleProcessFragment(
                 Filter2DProcessor()
             )
         ),
         0
+    )
+
+    object Blur : Menu(
+        "블러 적용하기",
+        MenuDirections.from(
+            MenuFragmentDirections.actionMenuFragmentToSingleProcessFragment(
+                BlurProcessor()
+            )
+        ),
+        1
+    )
+
+    object GaussianBlur : Menu(
+        "가우시안 블러 적용하기",
+        MenuDirections.from(
+            MenuFragmentDirections.actionMenuFragmentToSingleProcessFragment(
+                GaussianBlurProcessor()
+            )
+        ),
+        2
     )
 
 }

@@ -37,4 +37,14 @@ sealed class FilteringMenus {
         2
     )
 
+    object Sharpening : Menu(
+        "언샤프 필터 적용하기",
+        MenuDirections.from(
+            MenuFragmentDirections.actionMenuFragmentToSingleProcessFragment(
+                SharpeningProcessor()
+            )
+        ),
+        3
+    )
+
 }

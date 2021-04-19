@@ -19,7 +19,9 @@ class SingleProcessFragment:Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            viewModel.processor = SingleProcessFragmentArgs.fromBundle(it).processor
+            val args = SingleProcessFragmentArgs.fromBundle(it)
+            viewModel.loadImage(args.image, args.imreadMode)
+            viewModel.processor = args.processor
         }
 
     }

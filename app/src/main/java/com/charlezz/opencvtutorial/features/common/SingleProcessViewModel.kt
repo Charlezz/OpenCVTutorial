@@ -2,6 +2,8 @@ package com.charlezz.opencvtutorial.features.common
 
 import android.app.Application
 import android.graphics.Bitmap
+import androidx.annotation.DrawableRes
+import androidx.annotation.IdRes
 import androidx.lifecycle.*
 import com.charlezz.opencvtutorial.BitmapUtil
 import com.charlezz.opencvtutorial.R
@@ -22,13 +24,11 @@ class SingleProcessViewModel @Inject constructor(val app: Application) : Android
 
     var processor: Processor? = null
 
-    private var src = MutableLiveData<Mat>()
+    private var resId:Int = R.drawable.lenna
+    private var imreadMode:Int = Imgcodecs.IMREAD_GRAYSCALE
+    private val src = MutableLiveData<Mat>()
 
     var bitmap: LiveData<Bitmap> = Transformations.map(src) { bitmapUtil.bitmapFrom(it) }
-
-    init {
-        initialize()
-    }
 
     fun onProcessClick() {
         src.value?.let {
@@ -38,11 +38,13 @@ class SingleProcessViewModel @Inject constructor(val app: Application) : Android
     }
 
     fun onResetClick() {
-        initialize()
+        loadImage(resId, imreadMode)
     }
 
-    private fun initialize(){
-        src.value = Utils.loadResource(app, R.drawable.lenna, Imgcodecs.IMREAD_GRAYSCALE)
+    fun loadImage(@DrawableRes resId:Int, imreadMode:Int){
+        this.resId = resId
+        this.imreadMode = imreadMode
+        this.src.value = Utils.loadResource(app, resId, imreadMode)
     }
 
     override fun onCleared() {

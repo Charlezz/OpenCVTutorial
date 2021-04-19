@@ -173,6 +173,14 @@
         <argument
             android:name="processor"
             app:argType="com.charlezz.opencvtutorial.features.common.Processor" />
+        <argument
+            android:name="image"
+            app:argType="reference"
+            android:defaultValue="@drawable/lenna" />
+        <argument
+            android:name="imreadMode"
+            app:argType="integer" />
+
     </fragment>
 
 </navigation>

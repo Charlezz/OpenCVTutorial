@@ -18,6 +18,8 @@ import org.opencv.core.*
 import org.opencv.imgproc.Imgproc
 import javax.inject.Inject
 import kotlin.math.abs
+import kotlin.math.max
+import kotlin.math.min
 
 @AndroidEntryPoint
 class BackProjectFragment : Fragment(){
@@ -80,16 +82,19 @@ class BackProjectFragment : Fragment(){
                     binding.image.setImageBitmap(bitmapUtils.bitmapFrom(dst))
                 }
                 MotionEvent.ACTION_UP->{
-
-
-                    if(abs(initX.toDouble() - event.x.toDouble()) < 1.0 ||
-                        abs(initY.toDouble() - event.y.toDouble()) < 1.0){
+                    if(abs(initX - event.x) < 1.0f ||
+                        abs(initY - event.y) < 1.0f){
                         Toast.makeText(requireContext(), "사각형을 그려주세요~", Toast.LENGTH_SHORT).show()
                         return@setOnTouchListener true
                     }
 
-                    val srcWithRoi = Mat(src, Rect(Point(initX.toDouble(), initY.toDouble()), Point(event.x.toDouble(), event.y.toDouble())))
+
+                    val x = min(max(event.x, 0f), binding.image.width.toFloat())
+                    val y = min(max(event.y, 0f), binding.image.height.toFloat())
+
+                    val srcWithRoi = Mat(src, Rect(Point(initX.toDouble(), initY.toDouble()), Point(x.toDouble(),y.toDouble())))
                     val srcYCrCb = Mat()
+
 
                     Imgproc.cvtColor(srcWithRoi, srcYCrCb, Imgproc.COLOR_BGR2YCrCb)
 

@@ -2,10 +2,12 @@ package com.charlezz.opencvtutorial.features.basic
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.charlezz.opencvtutorial.BitmapUtil
 import com.charlezz.opencvtutorial.R
@@ -15,6 +17,7 @@ import org.opencv.android.Utils
 import org.opencv.core.*
 import org.opencv.imgproc.Imgproc
 import javax.inject.Inject
+import kotlin.math.abs
 
 @AndroidEntryPoint
 class BackProjectFragment : Fragment(){
@@ -77,8 +80,17 @@ class BackProjectFragment : Fragment(){
                     binding.image.setImageBitmap(bitmapUtils.bitmapFrom(dst))
                 }
                 MotionEvent.ACTION_UP->{
+
+
+                    if(abs(initX.toDouble() - event.x.toDouble()) < 1.0 ||
+                        abs(initY.toDouble() - event.y.toDouble()) < 1.0){
+                        Toast.makeText(requireContext(), "사각형을 그려주세요~", Toast.LENGTH_SHORT).show()
+                        return@setOnTouchListener true
+                    }
+
                     val srcWithRoi = Mat(src, Rect(Point(initX.toDouble(), initY.toDouble()), Point(event.x.toDouble(), event.y.toDouble())))
                     val srcYCrCb = Mat()
+
                     Imgproc.cvtColor(srcWithRoi, srcYCrCb, Imgproc.COLOR_BGR2YCrCb)
 
                     val channels = MatOfInt(1,2)

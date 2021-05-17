@@ -80,6 +80,21 @@
         <action
             android:id="@+id/action_menuFragment_to_realtimeProcessFragment"
             app:destination="@id/realtimeProcessFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_warpAffineFragment"
+            app:destination="@id/warpAffineFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_resizeFragment"
+            app:destination="@id/resizeFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_rotationFragment"
+            app:destination="@id/rotationFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_flipFragment"
+            app:destination="@id/flipFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_pyramidFragment"
+            app:destination="@id/pyramidFragment" />
 
 
     </fragment>
@@ -192,5 +207,26 @@
             android:name="frontCamera"
             app:argType="boolean" />
     </fragment>
+    <fragment
+        android:id="@+id/warpAffineFragment"
+        android:name="com.charlezz.opencvtutorial.features.geometry.WarpAffineFragment"
+        android:label="WarpAffineFragment" />
+    <fragment
+        android:id="@+id/resizeFragment"
+        android:name="com.charlezz.opencvtutorial.features.geometry.ResizeFragment"
+        android:label="ResizeFragment" />
+    <fragment
+        android:id="@+id/rotationFragment"
+        android:name="com.charlezz.opencvtutorial.features.geometry.RotationFragment"
+        android:label="RotationFragment" />
+    <fragment
+        android:id="@+id/flipFragment"
+        android:name="com.charlezz.opencvtutorial.features.geometry.FlipFragment"
+        android:label="FlipFragment" />
+
+    <fragment
+        android:id="@+id/pyramidFragment"
+        android:name="com.charlezz.opencvtutorial.features.geometry.PyramidFragment"
+        android:label="PyramidFragment" />
 
 </navigation>

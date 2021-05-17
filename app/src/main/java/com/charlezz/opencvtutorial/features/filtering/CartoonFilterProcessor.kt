@@ -6,6 +6,7 @@ import org.opencv.core.Mat
 import org.opencv.core.Size
 import org.opencv.imgcodecs.Imgcodecs
 import org.opencv.imgproc.Imgproc
+import org.opencv.photo.Photo
 import javax.inject.Inject
 
 /**
@@ -15,7 +16,6 @@ import javax.inject.Inject
 class CartoonFilterProcessor @Inject constructor() : Processor {
 
     override fun process(src: Mat): Mat {
-
         val width = src.width()
         val height = src.height()
 
@@ -36,6 +36,19 @@ class CartoonFilterProcessor @Inject constructor() : Processor {
         //블러시킨 이미지와 반전된 edge를 and연산자로 합치면 edge부분은 검정색으로 나오고, 나머지는 많이 뭉개지고 블러처리된 이미지로 나옴, 카툰효과
         val dst = Mat()
         Core.bitwise_and(blur, edge, dst)
+        Imgproc.resize(dst, dst, Size(width.toDouble(), height.toDouble()), 1.0, 1.0, Imgproc.INTER_NEAREST)
+        return dst
+//        return stylize(src)
+    }
+
+    private fun stylize(src:Mat):Mat{
+        val width = src.width()
+        val height = src.height()
+        val resizedSrc = Mat()
+        Imgproc.resize(src, resizedSrc, Size(width / 8.0, height / 8.0))
+        val dst = Mat()
+        Photo.stylization(resizedSrc, dst, 200f, 0.1f)
+
         Imgproc.resize(dst, dst, Size(width.toDouble(), height.toDouble()), 1.0, 1.0, Imgproc.INTER_NEAREST)
         return dst
     }

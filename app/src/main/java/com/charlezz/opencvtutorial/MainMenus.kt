@@ -3,6 +3,7 @@ package com.charlezz.opencvtutorial
 import com.charlezz.opencvtutorial.features.basic.BasicMenus
 import com.charlezz.opencvtutorial.features.experiment.ExperimentMenus
 import com.charlezz.opencvtutorial.features.filtering.FilteringMenus
+import com.charlezz.opencvtutorial.features.geometry.GeometryMenus
 
 sealed class MainMenus {
 
@@ -30,6 +31,19 @@ sealed class MainMenus {
             )
         ),
         1
+    )
+
+    object GeometryTransformation:Menu(
+        "기하학적 변환",
+        MenuDirections.from(
+            MenuFragmentDirections.actionMenuFragmentSelf(
+                GeometryMenus::class.nestedClasses
+                    .sortedBy { menuKclass -> (menuKclass.objectInstance as Menu).order }
+                    .map { menuKclass -> menuKclass.objectInstance as Menu }
+                    .toTypedArray()
+            )
+        ),
+        2
     )
 
     object Experiment:Menu(

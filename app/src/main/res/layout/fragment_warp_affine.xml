@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/element1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Element1"
+            android:inputType="number"
+            android:text="1"
+            app:layout_constraintEnd_toStartOf="@id/element2"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/element2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Element2"
+            android:inputType="number"
+            android:text="0"
+            app:layout_constraintEnd_toStartOf="@id/element3"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/element1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/element3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Element3"
+            android:inputType="number"
+            android:text="0"
+            app:layout_constraintEnd_toStartOf="@id/btn"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/element2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/element4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Element4"
+            android:inputType="number"
+            android:text="0"
+            app:layout_constraintEnd_toEndOf="@id/element1"
+            app:layout_constraintStart_toStartOf="@id/element1"
+            app:layout_constraintTop_toBottomOf="@id/element1" />
+
+        <EditText
+            android:id="@+id/element5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Element5"
+            android:inputType="number"
+            android:text="1"
+            app:layout_constraintEnd_toEndOf="@id/element2"
+            app:layout_constraintStart_toStartOf="@id/element2"
+            app:layout_constraintTop_toBottomOf="@id/element2" />
+
+        <EditText
+            android:id="@+id/element6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Element6"
+            android:inputType="number"
+            android:text="0"
+            app:layout_constraintEnd_toEndOf="@id/element3"
+            app:layout_constraintStart_toStartOf="@id/element3"
+            app:layout_constraintTop_toBottomOf="@id/element3" />
+
+        <Button
+            android:id="@+id/btn"
+            android:layout_width="100dp"
+            android:layout_height="0dp"
+            android:text="Apply"
+            app:layout_constraintBottom_toBottomOf="@id/element6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/element3"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@color/GR100A"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

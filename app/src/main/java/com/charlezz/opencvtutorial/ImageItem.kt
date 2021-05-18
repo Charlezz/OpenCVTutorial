@@ -1,16 +1,18 @@
 package com.charlezz.opencvtutorial
 
-import android.graphics.Bitmap
 import android.view.View
 import com.charlezz.opencvtutorial.databinding.ItemImageBinding
 import com.xwray.groupie.viewbinding.BindableItem
-import org.opencv.core.Mat
 
 class ImageItem(
-    private val bitmap: Bitmap
+    private val image:Image
 ) : BindableItem<ItemImageBinding>() {
+
     override fun bind(viewBinding: ItemImageBinding, position: Int) {
-        viewBinding.image.setImageBitmap(bitmap)
+
+        image.get()?.let {
+            viewBinding.image.setImageBitmap(it)
+        }
         viewBinding.executePendingBindings()
     }
 
@@ -19,6 +21,7 @@ class ImageItem(
     }
 
     override fun initializeViewBinding(view: View): ItemImageBinding {
+        image.createBitmap(view.context)
         return ItemImageBinding.bind(view)
     }
 

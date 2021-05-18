@@ -1,15 +1,13 @@
 package com.charlezz.opencvtutorial.features.geometry
 
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.charlezz.opencvtutorial.BitmapUtil
-import com.charlezz.opencvtutorial.CacheUtil
-import com.charlezz.opencvtutorial.ImageItem
-import com.charlezz.opencvtutorial.R
+import com.charlezz.opencvtutorial.*
 import com.charlezz.opencvtutorial.databinding.FragmentPyramidBinding
 import com.charlezz.pickle.Config
 import com.charlezz.pickle.PickleSingle
@@ -26,18 +24,18 @@ import javax.inject.Inject
 class PyramidFragment : Fragment() {
 
     @Inject
-    lateinit var bitmapUtil:BitmapUtil
+    lateinit var bitmapUtil: BitmapUtil
 
     @Inject
-    lateinit var adapter:GroupieAdapter
+    lateinit var adapter: GroupieAdapter
 
     @Inject
     lateinit var cacheUtil: CacheUtil
 
-    private var _binding:FragmentPyramidBinding? = null
-    private val binding:FragmentPyramidBinding get() = _binding!!
+    private var _binding: FragmentPyramidBinding? = null
+    private val binding: FragmentPyramidBinding get() = _binding!!
 
-    private val launcher = PickleSingle.register(this, object:PickleSingle.Callback{
+    private val launcher = PickleSingle.register(this, object : PickleSingle.Callback {
         override fun onResult(media: Media?) {
             media?.let {
 
@@ -72,15 +70,15 @@ class PyramidFragment : Fragment() {
         }
     }
 
-    private fun load(src:Mat){
+    private fun load(src: Mat) {
         adapter.clear()
-        for(count in 1..5){
+        for (count in 1..5) {
             val cpy = Mat()
             src.copyTo(cpy)
             bitmapUtil.bitmapFrom(cpy)?.let {
-                adapter.add(ImageItem(it))
+                adapter.add(ImageItem(BitmapImage(it)))
             }
-            Imgproc.pyrDown(src,src)
+            Imgproc.pyrDown(src, src)
         }
     }
 

@@ -101,6 +101,9 @@
         <action
             android:id="@+id/action_menuFragment_to_perspectiveTransformFragment"
             app:destination="@id/perspectiveTransformFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_imageListFragment"
+            app:destination="@id/imageListFragment" />
 
 
     </fragment>
@@ -242,5 +245,13 @@
         android:id="@+id/perspectiveTransformFragment"
         android:name="com.charlezz.opencvtutorial.features.geometry.PerspectiveTransformFragment"
         android:label="PerspectiveTransformFragment" />
+
+    <fragment
+        android:id="@+id/imageListFragment"
+        android:name="com.charlezz.opencvtutorial.ImageListFragment"
+        android:label="ImageListFragment">
+        <argument android:name="images"
+            app:argType="com.charlezz.opencvtutorial.Image[]"/>
+    </fragment>
 
 </navigation>

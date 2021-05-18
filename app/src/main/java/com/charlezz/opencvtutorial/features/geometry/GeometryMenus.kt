@@ -1,8 +1,6 @@
 package com.charlezz.opencvtutorial.features.geometry
 
-import com.charlezz.opencvtutorial.Menu
-import com.charlezz.opencvtutorial.MenuDirections
-import com.charlezz.opencvtutorial.MenuFragmentDirections
+import com.charlezz.opencvtutorial.*
 
 sealed class GeometryMenus {
     object WarpAffine: Menu(
@@ -44,5 +42,13 @@ sealed class GeometryMenus {
         "Perspective 변환",
         MenuDirections.from(MenuFragmentDirections.actionMenuFragmentToPerspectiveTransformFragment()),
         6
+    )
+
+    object Remap:Menu(
+        "리매핑",
+        MenuDirections.from(MenuFragmentDirections.actionMenuFragmentToImageListFragment(
+            arrayOf(BitmapImage(R.drawable.runa), RemapWave())
+        )),
+        7
     )
 }

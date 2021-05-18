@@ -1,14 +1,13 @@
 package com.charlezz.opencvtutorial.features.basic
 
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.charlezz.opencvtutorial.BitmapUtil
-import com.charlezz.opencvtutorial.CacheUtil
-import com.charlezz.opencvtutorial.ImageItem
+import com.charlezz.opencvtutorial.*
 import com.charlezz.opencvtutorial.databinding.FragmentImageChannelBinding
 import com.charlezz.pickle.Config
 import com.charlezz.pickle.Pickle
@@ -53,7 +52,7 @@ class ImageChannelFragment : Fragment() {
                     channel.forEach { mat ->
                         bitmapUtil.bitmapFrom(mat)
                             ?.let { bitmap ->
-                                adapter.add(ImageItem(bitmap))
+                                adapter.add(ImageItem(BitmapImage(bitmap)))
                             }
                     }
                 }

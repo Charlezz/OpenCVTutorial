@@ -95,6 +95,12 @@
         <action
             android:id="@+id/action_menuFragment_to_pyramidFragment"
             app:destination="@id/pyramidFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_affineTransformFragment"
+            app:destination="@id/affineTransformFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_perspectiveTransformFragment"
+            app:destination="@id/perspectiveTransformFragment" />
 
 
     </fragment>
@@ -228,5 +234,13 @@
         android:id="@+id/pyramidFragment"
         android:name="com.charlezz.opencvtutorial.features.geometry.PyramidFragment"
         android:label="PyramidFragment" />
+    <fragment
+        android:id="@+id/affineTransformFragment"
+        android:name="com.charlezz.opencvtutorial.features.geometry.AffineTransformFragment"
+        android:label="AffineTransformFragment" />
+    <fragment
+        android:id="@+id/perspectiveTransformFragment"
+        android:name="com.charlezz.opencvtutorial.features.geometry.PerspectiveTransformFragment"
+        android:label="PerspectiveTransformFragment" />
 
 </navigation>

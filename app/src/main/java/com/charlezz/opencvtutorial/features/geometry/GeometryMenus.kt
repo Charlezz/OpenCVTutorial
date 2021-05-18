@@ -33,4 +33,16 @@ sealed class GeometryMenus {
         MenuDirections.from(MenuFragmentDirections.actionMenuFragmentToPyramidFragment()),
         4
     )
+
+    object AffineTransform: Menu(
+        "Affine 변환",
+        MenuDirections.from(MenuFragmentDirections.actionMenuFragmentToAffineTransformFragment()),
+        5
+    )
+
+    object PerspectiveTransform: Menu(
+        "Perspective 변환",
+        MenuDirections.from(MenuFragmentDirections.actionMenuFragmentToPerspectiveTransformFragment()),
+        6
+    )
 }

@@ -44,7 +44,7 @@
                 android:layout_marginTop="10dp"
                 android:background="@android:color/holo_red_light"
                 android:gravity="center"
-                android:text="Perspective transform"
+                android:text="Affine transform"
                 android:textSize="30dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"

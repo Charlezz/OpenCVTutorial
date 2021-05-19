@@ -34,13 +34,13 @@ sealed class GeometryMenus {
     )
 
     object AffineTransform : Menu(
-        "Affine 변환",
+        "Affine 변환 행렬 구하기",
         MenuDirections.from(MenuFragmentDirections.actionMenuFragmentToAffineTransformFragment()),
         5
     )
 
     object PerspectiveTransform : Menu(
-        "Perspective 변환",
+        "Perspective 변환 행렬 구하기",
         MenuDirections.from(MenuFragmentDirections.actionMenuFragmentToPerspectiveTransformFragment()),
         6
     )

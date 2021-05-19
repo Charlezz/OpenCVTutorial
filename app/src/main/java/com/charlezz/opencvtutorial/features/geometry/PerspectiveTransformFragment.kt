@@ -35,17 +35,17 @@ class PerspectiveTransformFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // 일반적인 명함 사이즈
-        val width = 388.0
-        val height = 600.0
+        // A4 용지 크기: 210x297cm
+        val width = 210.0
+        val height = 297.0
 
-        val src = Utils.loadResource(requireContext(), R.drawable.business_card)
-        Imgproc.resize(src, src, Size(600.0, 600.0))
+        val src = Utils.loadResource(requireContext(), R.drawable.scanned)
+        Imgproc.resize(src, src, Size(600.0, 800.0))
 
-        val pt1 = Point(40.0, 100.0)
-        val pt2 = Point(345.0, 35.0)
-        val pt3 = Point(183.0, 575.0)
-        val pt4 = Point(584.0, 445.0)
+        val pt1 = Point(58.0, 130.0)
+        val pt2 = Point(420.0, 130.0)
+        val pt3 = Point(88.0, 710.0)
+        val pt4 = Point(570.0, 635.0)
 
         Imgproc.circle(src, pt1, 10, Scalar(0.0, 0.0, 255.0), -1)
         Imgproc.circle(src, pt2, 10, Scalar(0.0, 255.0, 0.0), -1)

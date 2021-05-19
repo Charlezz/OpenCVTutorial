@@ -104,6 +104,9 @@
         <action
             android:id="@+id/action_menuFragment_to_imageListFragment"
             app:destination="@id/imageListFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_scannerFragment"
+            app:destination="@id/scannerFragment" />
 
 
     </fragment>
@@ -253,5 +256,9 @@
         <argument android:name="images"
             app:argType="com.charlezz.opencvtutorial.Image[]"/>
     </fragment>
+    <fragment
+        android:id="@+id/scannerFragment"
+        android:name="com.charlezz.opencvtutorial.features.geometry.ScannerFragment"
+        android:label="ScannerFragment" />
 
 </navigation>

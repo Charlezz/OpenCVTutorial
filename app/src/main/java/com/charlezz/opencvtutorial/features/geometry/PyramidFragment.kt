@@ -1,6 +1,5 @@
 package com.charlezz.opencvtutorial.features.geometry
 
-import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -72,14 +71,44 @@ class PyramidFragment : Fragment() {
 
     private fun load(src: Mat) {
         adapter.clear()
+
+        val cpy = Mat()
+        src.copyTo(cpy)
         for (count in 1..5) {
-            val cpy = Mat()
-            src.copyTo(cpy)
+            if(count ==1){
+                adapter.add(TextItem("다운스케일링 예제(원본)"))
+            }else{
+                adapter.add(TextItem("다운스케일링 ${count}회차"))
+            }
             bitmapUtil.bitmapFrom(cpy)?.let {
                 adapter.add(ImageItem(BitmapImage(it)))
             }
-            Imgproc.pyrDown(src, src)
+            Imgproc.pyrDown(cpy, cpy)
         }
+
+        val downscaled = Mat()
+        Imgproc.pyrDown(src, downscaled)
+
+        val upscaledFromDownscaled = Mat()
+        Imgproc.pyrUp(downscaled, upscaledFromDownscaled)
+
+        val laplacian = Mat()
+        Core.subtract(src, upscaledFromDownscaled,laplacian)
+
+        val restored = Mat()
+        Core.add(upscaledFromDownscaled, laplacian, restored)
+
+        adapter.add(TextItem("원본"))
+        adapter.add(ImageItem(BitmapImage(bitmapUtil.bitmapFrom(src)!!)))
+        adapter.add(TextItem("다운스케일링"))
+        adapter.add(ImageItem(BitmapImage(bitmapUtil.bitmapFrom(downscaled)!!)))
+        adapter.add(TextItem("다운스케일링 한 것 다시 업스케일링"))
+        adapter.add(ImageItem(BitmapImage(bitmapUtil.bitmapFrom(upscaledFromDownscaled)!!)))
+        adapter.add(TextItem("라플라시안(다운스케일링 - 업스케일링)"))
+        adapter.add(ImageItem(BitmapImage(bitmapUtil.bitmapFrom(laplacian)!!)))
+        adapter.add(TextItem("업스케일링 + 라플라시안"))
+        adapter.add(ImageItem(BitmapImage(bitmapUtil.bitmapFrom(restored)!!)))
+
     }
 
     override fun onDestroyView() {

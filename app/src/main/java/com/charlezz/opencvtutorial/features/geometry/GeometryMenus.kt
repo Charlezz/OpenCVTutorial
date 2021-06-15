@@ -50,7 +50,7 @@ sealed class GeometryMenus {
         MenuDirections.from(
             MenuFragmentDirections.actionMenuFragmentToImageListFragment(
                 arrayOf(
-                    BitmapImage(R.drawable.runa),
+                    BitmapImage("",R.drawable.runa),
                     RemapWave()
                 )
             )

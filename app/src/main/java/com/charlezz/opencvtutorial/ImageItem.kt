@@ -12,6 +12,8 @@ class ImageItem(
 
         image.get()?.let {
             viewBinding.image.setImageBitmap(it)
+            viewBinding.title.text = image.title
+            viewBinding.title.visibility = if(image.title.isEmpty()) View.GONE else View.VISIBLE
         }
         viewBinding.executePendingBindings()
     }

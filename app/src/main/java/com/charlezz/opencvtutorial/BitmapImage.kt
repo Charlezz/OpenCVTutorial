@@ -8,9 +8,9 @@ import kotlinx.parcelize.Parcelize
 import org.opencv.android.Utils
 
 @Parcelize
-class BitmapImage constructor(@DrawableRes val id:Int) : Image(id) {
+class BitmapImage constructor(private val _title:String,@DrawableRes val id:Int) : Image(_title,id) {
 
-    constructor(bitmap: Bitmap):this(-1){
+    constructor(bitmap: Bitmap):this("",-1){
         this.bitmap = bitmap
     }
 }

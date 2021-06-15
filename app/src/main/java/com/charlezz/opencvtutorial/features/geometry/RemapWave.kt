@@ -13,7 +13,7 @@ import kotlin.math.sin
 
 
 @Parcelize
-class RemapWave : Image(R.drawable.runa) {
+class RemapWave : Image(resId = R.drawable.runa) {
     override fun process(context: Context, src: Mat): Bitmap? {
         // 연산 속도가 느려서 사이즈를 1/4로 줄임
         Imgproc.resize(src, src, Size(src.size().width/4, src.size().height/4))

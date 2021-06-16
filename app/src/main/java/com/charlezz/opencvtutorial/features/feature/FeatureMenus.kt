@@ -43,4 +43,30 @@ sealed class FeatureMenus {
         ),
         order = 3
     )
+
+    object Laplacian : Menu(
+        title = "라플라시안 필터",
+        menuDirections = MenuDirections.from(
+            MenuFragmentDirections.actionMenuFragmentToImageListFragment(
+                arrayOf(
+                    BitmapImage ("원본",R.drawable.lenna),
+                    LaplacianImage("라플라시안 필터", -1, 3),
+                )
+            )
+        ),
+        order = 4
+    )
+
+    object Canny : Menu(
+        title = "캐니 엣지 검출",
+        menuDirections = MenuDirections.from(
+            MenuFragmentDirections.actionMenuFragmentToImageListFragment(
+                arrayOf(
+                    BitmapImage ("원본",R.drawable.lenna),
+                    CannyImage("캐니 엣지 검출", 50.0, 100.0),
+                )
+            )
+        ),
+        order = 5
+    )
 }

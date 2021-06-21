@@ -69,4 +69,31 @@ sealed class FeatureMenus {
         ),
         order = 5
     )
+
+    object HoughLineTransform : Menu(
+        title = "허프 선 변환",
+        menuDirections = MenuDirections.from(
+            MenuFragmentDirections.actionMenuFragmentToImageListFragment(
+                arrayOf(
+                    BitmapImage ("원본",R.drawable.building),
+                    HoughLinesTransformImage()
+                )
+            )
+        ),
+        order = 6
+    )
+
+
+    object HoughLinePTransform : Menu(
+        title = "확률적 허프 선 변환",
+        menuDirections = MenuDirections.from(
+            MenuFragmentDirections.actionMenuFragmentToImageListFragment(
+                arrayOf(
+                    BitmapImage ("원본",R.drawable.building),
+                    HoughLinesPTransformImage()
+                )
+            )
+        ),
+        order = 7
+    )
 }

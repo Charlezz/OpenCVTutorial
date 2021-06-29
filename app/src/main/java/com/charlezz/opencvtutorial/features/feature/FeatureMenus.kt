@@ -70,7 +70,7 @@ sealed class FeatureMenus {
         order = 5
     )
 
-    object HoughLineTransform : Menu(
+    object HoughLinesTransform : Menu(
         title = "허프 선 변환",
         menuDirections = MenuDirections.from(
             MenuFragmentDirections.actionMenuFragmentToImageListFragment(
@@ -84,7 +84,7 @@ sealed class FeatureMenus {
     )
 
 
-    object HoughLinePTransform : Menu(
+    object HoughLinesPTransform : Menu(
         title = "확률적 허프 선 변환",
         menuDirections = MenuDirections.from(
             MenuFragmentDirections.actionMenuFragmentToImageListFragment(
@@ -95,5 +95,18 @@ sealed class FeatureMenus {
             )
         ),
         order = 7
+    )
+
+    object HoughCirclesTransform : Menu(
+        title = "허프 원 변환",
+        menuDirections = MenuDirections.from(
+            MenuFragmentDirections.actionMenuFragmentToImageListFragment(
+                arrayOf(
+                    BitmapImage ("원본",R.drawable.coin),
+                    HoughCirclesTransformImage()
+                )
+            )
+        ),
+        order = 8
     )
 }

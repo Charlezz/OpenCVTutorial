@@ -107,6 +107,9 @@
         <action
             android:id="@+id/action_menuFragment_to_scannerFragment"
             app:destination="@id/scannerFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_sliderProcessFragment"
+            app:destination="@id/sliderProcessFragment" />
 
 
     </fragment>
@@ -206,6 +209,22 @@
             app:argType="integer" />
 
     </fragment>
+    <fragment android:id="@+id/sliderProcessFragment"
+        android:name="com.charlezz.opencvtutorial.features.common.SliderProcessFragment"
+        android:label="SliderProcessFragment"
+        >
+        <argument
+            android:name="processor"
+            app:argType="com.charlezz.opencvtutorial.features.common.SliderProcessor" />
+        <argument
+            android:name="image"
+            android:defaultValue="@drawable/lenna"
+            app:argType="reference" />
+        <argument
+            android:name="imreadMode"
+            app:argType="integer" />
+    </fragment>
+
 
     <fragment
         android:id="@+id/realtimeProcessFragment"
@@ -253,8 +272,9 @@
         android:id="@+id/imageListFragment"
         android:name="com.charlezz.opencvtutorial.ImageListFragment"
         android:label="ImageListFragment">
-        <argument android:name="images"
-            app:argType="com.charlezz.opencvtutorial.Image[]"/>
+        <argument
+            android:name="images"
+            app:argType="com.charlezz.opencvtutorial.Image[]" />
     </fragment>
     <fragment
         android:id="@+id/scannerFragment"

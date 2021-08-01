@@ -1,6 +1,7 @@
 package com.charlezz.opencvtutorial
 
 import com.charlezz.opencvtutorial.features.basic.BasicMenus
+import com.charlezz.opencvtutorial.features.binary.BinaryMenus
 import com.charlezz.opencvtutorial.features.experiment.ExperimentMenus
 import com.charlezz.opencvtutorial.features.feature.FeatureMenus
 import com.charlezz.opencvtutorial.features.filtering.FilteringMenus
@@ -60,15 +61,28 @@ sealed class MainMenus {
         3
     )
 
-    object Experiment:Menu(
-        "실험실",
+    object Binary:Menu(
+        "영상의 이진화",
         MenuDirections.from(
             MenuFragmentDirections.actionMenuFragmentSelf(
-                ExperimentMenus::class.nestedClasses
+                BinaryMenus::class.nestedClasses
                     .sortedBy { menuKclass -> (menuKclass.objectInstance as Menu).order }
                     .map { menuKclass -> menuKclass.objectInstance as Menu }
                     .toTypedArray()
             )
-        )
+        ),
+        4
     )
+
+//    object Experiment:Menu(
+//        "실험실",
+//        MenuDirections.from(
+//            MenuFragmentDirections.actionMenuFragmentSelf(
+//                ExperimentMenus::class.nestedClasses
+//                    .sortedBy { menuKclass -> (menuKclass.objectInstance as Menu).order }
+//                    .map { menuKclass -> menuKclass.objectInstance as Menu }
+//                    .toTypedArray()
+//            )
+//        )
+//    )
 }

@@ -66,6 +66,10 @@ class SliderProcessFragment : Fragment() {
             process()
         }
 
+        binding.slider1.value = processor.valueFrom1
+        binding.slider2.value = processor.valueFrom2
+        binding.slider3.value = processor.valueFrom3
+
         binding.slider1.valueFrom = processor.valueFrom1
         binding.slider2.valueFrom = processor.valueFrom2
         binding.slider3.valueFrom = processor.valueFrom3

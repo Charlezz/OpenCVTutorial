@@ -1,8 +1,7 @@
 package com.charlezz.opencvtutorial
 
 import com.charlezz.opencvtutorial.features.basic.BasicMenus
-import com.charlezz.opencvtutorial.features.binary.BinaryMenus
-import com.charlezz.opencvtutorial.features.experiment.ExperimentMenus
+import com.charlezz.opencvtutorial.features.binary.BinarizationMenus
 import com.charlezz.opencvtutorial.features.feature.FeatureMenus
 import com.charlezz.opencvtutorial.features.filtering.FilteringMenus
 import com.charlezz.opencvtutorial.features.geometry.GeometryMenus
@@ -65,7 +64,7 @@ sealed class MainMenus {
         "영상의 이진화",
         MenuDirections.from(
             MenuFragmentDirections.actionMenuFragmentSelf(
-                BinaryMenus::class.nestedClasses
+                BinarizationMenus::class.nestedClasses
                     .sortedBy { menuKclass -> (menuKclass.objectInstance as Menu).order }
                     .map { menuKclass -> menuKclass.objectInstance as Menu }
                     .toTypedArray()

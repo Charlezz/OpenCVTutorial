@@ -57,7 +57,7 @@ sealed class BinarizationMenus {
         menuDirections = MenuDirections.from(
             MenuFragmentDirections.actionMenuFragmentToSliderProcessFragment(
                 AdaptiveThresholdProcessor(),
-                R.drawable.rice,
+                R.drawable.sudoku,
                 Imgcodecs.IMREAD_GRAYSCALE
             )
         ),

@@ -64,4 +64,16 @@ sealed class BinarizationMenus {
         order = 4
     )
 
+    object Labeling : Menu(
+        title = "레이블링",
+        menuDirections = MenuDirections.from(
+            MenuFragmentDirections.actionMenuFragmentToImageListFragment(
+                arrayOf(
+                    LabelingImage("레이블링"),
+                )
+            )
+        ),
+        order = 5
+    )
+
 }

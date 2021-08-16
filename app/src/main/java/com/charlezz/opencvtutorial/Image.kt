@@ -17,7 +17,8 @@ open abstract class Image constructor(
     @DrawableRes val resId: Int
 ) : Parcelable {
 
-    protected var bitmap: Bitmap? = null
+    var bitmap: Bitmap? = null
+    var result:String? = null
 
     fun createBitmap(context: Context) {
         if (resId != -1) {
@@ -30,10 +31,6 @@ open abstract class Image constructor(
     }
 
     open fun process(context: Context, src: Mat): Bitmap? {
-        return bitmap
-    }
-
-    fun get(): Bitmap? {
         return bitmap
     }
 

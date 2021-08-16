@@ -10,10 +10,12 @@ class ImageItem(
 
     override fun bind(viewBinding: ItemImageBinding, position: Int) {
 
-        image.get()?.let {
+        image.bitmap?.let {
             viewBinding.image.setImageBitmap(it)
             viewBinding.title.text = image.title
             viewBinding.title.visibility = if(image.title.isEmpty()) View.GONE else View.VISIBLE
+            viewBinding.result.text = image.result
+            viewBinding.result.visibility = if(image.result.isNullOrEmpty()) View.GONE else View.VISIBLE
         }
         viewBinding.executePendingBindings()
     }

@@ -17,30 +17,9 @@ class LocalBinarizationImage(
     private val rows: Int
 ) : Image(_title, drawableResId) {
     override fun process(context: Context, src: Mat): Bitmap? {
-        // grayscale로 변환
         val graySrc = Mat()
         Imgproc.cvtColor(src, graySrc, Imgproc.COLOR_BGR2GRAY)
-
-        val width = graySrc.width()
-        val height = graySrc.height()
-
-        for (row in 0 until rows) {
-            for (column in 0 until columns) {
-                val submat = graySrc.submat(
-                    height / rows * row,
-                    height / rows * (row + 1),
-                    width / columns * column,
-                    width / columns * (column + 1)
-                )
-                Imgproc.threshold(
-                    submat,
-                    submat,
-                    0.0,
-                    255.0,
-                    Imgproc.THRESH_BINARY or Imgproc.THRESH_OTSU
-                )
-            }
-        }
-        return BitmapUtil().bitmapFrom(graySrc)
+        val dst = LocalBinarizationUtil.process(graySrc)
+        return BitmapUtil().bitmapFrom(dst)
     }
 }

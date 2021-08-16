@@ -1,8 +1,8 @@
 package com.charlezz.opencvtutorial.features.binary
 
 import com.charlezz.opencvtutorial.*
-import com.charlezz.opencvtutorial.features.feature.HoughCirclesTransformImage
 import org.opencv.imgcodecs.Imgcodecs
+import org.opencv.imgproc.Imgproc
 
 sealed class BinarizationMenus {
     object Threshold : Menu(
@@ -74,6 +74,42 @@ sealed class BinarizationMenus {
             )
         ),
         order = 5
+    )
+
+    object Erosion : Menu(
+        title = "침식",
+        menuDirections = MenuDirections.from(
+            MenuFragmentDirections.actionMenuFragmentToSliderProcessFragment(
+                MorphologyProcessor(true),
+                R.drawable.rice,
+                Imgcodecs.IMREAD_GRAYSCALE
+            )
+        ),
+        order = 6
+    )
+
+    object Dilation : Menu(
+        title = "팽창",
+        menuDirections = MenuDirections.from(
+            MenuFragmentDirections.actionMenuFragmentToSliderProcessFragment(
+                MorphologyProcessor(false),
+                R.drawable.rice,
+                Imgcodecs.IMREAD_GRAYSCALE
+            )
+        ),
+        order = 7
+    )
+
+    object MorphologyEx : Menu(
+        title = "쌀알 + 열기(Opening) 연산",
+        menuDirections = MenuDirections.from(
+            MenuFragmentDirections.actionMenuFragmentToImageListFragment(
+                arrayOf(
+                    RiceWithOpeningImage("쌀알 + 열기(Opening) 연산", R.drawable.rice, Imgproc.MORPH_ERODE,5),
+                )
+            )
+        ),
+        order = 8
     )
 
 }

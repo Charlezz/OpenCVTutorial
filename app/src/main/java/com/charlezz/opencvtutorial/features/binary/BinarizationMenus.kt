@@ -112,4 +112,16 @@ sealed class BinarizationMenus {
         order = 8
     )
 
+    object Contour : Menu(
+        title = "외곽선 검출",
+        menuDirections = MenuDirections.from(
+            MenuFragmentDirections.actionMenuFragmentToImageListFragment(
+                arrayOf(
+                    ContourImage(),
+                )
+            )
+        ),
+        order = 9
+    )
+
 }

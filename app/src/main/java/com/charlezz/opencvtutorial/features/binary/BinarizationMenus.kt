@@ -113,7 +113,7 @@ sealed class BinarizationMenus {
     )
 
     object Contour : Menu(
-        title = "외곽선 검출",
+        title = "외곽선 검출(쌀알)",
         menuDirections = MenuDirections.from(
             MenuFragmentDirections.actionMenuFragmentToImageListFragment(
                 arrayOf(
@@ -122,6 +122,18 @@ sealed class BinarizationMenus {
             )
         ),
         order = 9
+    )
+
+    object Contour2 : Menu(
+        title = "외곽선 검출(물방울)",
+        menuDirections = MenuDirections.from(
+            MenuFragmentDirections.actionMenuFragmentToImageListFragment(
+                arrayOf(
+                    ContourImage(_resId = R.drawable.milkdrop, useLocalBinarization = false),
+                )
+            )
+        ),
+        order = 10
     )
 
 }

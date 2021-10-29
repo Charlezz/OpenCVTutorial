@@ -20,7 +20,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@color/point_color"
+            android:background="#ffffff"
             android:padding="15dp"
             android:text="@{item.menu.title}"
             app:layout_constraintBottom_toBottomOf="parent"

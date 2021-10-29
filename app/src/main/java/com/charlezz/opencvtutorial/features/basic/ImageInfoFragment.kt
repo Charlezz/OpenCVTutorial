@@ -1,5 +1,8 @@
 package com.charlezz.opencvtutorial.features.basic
 
+//import com.charlezz.pickle.Config
+//import com.charlezz.pickle.PickleSingle
+//import com.charlezz.pickle.data.entity.Media
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,14 +11,7 @@ import androidx.fragment.app.Fragment
 import com.charlezz.opencvtutorial.BitmapUtil
 import com.charlezz.opencvtutorial.CacheUtil
 import com.charlezz.opencvtutorial.databinding.FragmentImageInfoBinding
-import com.charlezz.pickle.Config
-import com.charlezz.pickle.PickleSingle
-import com.charlezz.pickle.data.entity.Media
 import dagger.hilt.android.AndroidEntryPoint
-import org.opencv.imgcodecs.Imgcodecs
-import org.opencv.imgcodecs.Imgcodecs.IMREAD_COLOR
-import org.opencv.imgproc.Imgproc
-import java.lang.StringBuilder
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -30,28 +26,28 @@ class ImageInfoFragment : Fragment() {
     private var _binding: FragmentImageInfoBinding? = null
     private val binding get() = _binding!!
 
-    private val pickle = PickleSingle.register(
-        this,
-        object : PickleSingle.Callback {
-            override fun onResult(media: Media?) {
-                media?.getUri()?.let { uri ->
-                    val file = cacheUtil.copyFrom(uri)
-                    val mat = Imgcodecs.imread(file.absolutePath)
-                    val bitmap = bitmapUtil.bitmapFrom(mat)
-                    binding.image.setImageBitmap(bitmap)
-
-                    val info = StringBuilder()
-                        .appendLine("width = ${mat.width()}")
-                        .appendLine("height = ${mat.height()}")
-                        .appendLine("pixels = ${mat.total()}")
-                        .appendLine("type = ${mat.type()}")
-                        .appendLine("channels = ${mat.channels()}")
-                        .toString()
-
-                    binding.info.text = info
-                }
-            }
-        })
+//    private val pickle = PickleSingle.register(
+//        this,
+//        object : PickleSingle.Callback {
+//            override fun onResult(media: Media?) {
+//                media?.getUri()?.let { uri ->
+//                    val file = cacheUtil.copyFrom(uri)
+//                    val mat = Imgcodecs.imread(file.absolutePath)
+//                    val bitmap = bitmapUtil.bitmapFrom(mat)
+//                    binding.image.setImageBitmap(bitmap)
+//
+//                    val info = StringBuilder()
+//                        .appendLine("width = ${mat.width()}")
+//                        .appendLine("height = ${mat.height()}")
+//                        .appendLine("pixels = ${mat.total()}")
+//                        .appendLine("type = ${mat.type()}")
+//                        .appendLine("channels = ${mat.channels()}")
+//                        .toString()
+//
+//                    binding.info.text = info
+//                }
+//            }
+//        })
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -72,7 +68,7 @@ class ImageInfoFragment : Fragment() {
     ) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnSelect.setOnClickListener {
-            pickle.launch(Config.getDefault())
+//            pickle.launch(Config.getDefault())
         }
     }
 

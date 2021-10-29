@@ -1,23 +1,16 @@
 package com.charlezz.opencvtutorial.features.basic
 
-import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.charlezz.opencvtutorial.*
+import com.charlezz.opencvtutorial.BitmapUtil
+import com.charlezz.opencvtutorial.CacheUtil
 import com.charlezz.opencvtutorial.databinding.FragmentImageChannelBinding
-import com.charlezz.pickle.Config
-import com.charlezz.pickle.Pickle
-import com.charlezz.pickle.PickleSingle
-import com.charlezz.pickle.data.entity.Media
 import com.xwray.groupie.GroupieAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import org.opencv.core.Core
-import org.opencv.core.Mat
-import org.opencv.imgcodecs.Imgcodecs
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -34,31 +27,31 @@ class ImageChannelFragment : Fragment() {
 
     private var _binding: FragmentImageChannelBinding? = null
     private val binding get() = _binding!!
-
-    private val pickle = PickleSingle.register(
-        this,
-        object : PickleSingle.Callback {
-            override fun onResult(media: Media?) {
-                media?.getUri()?.let { uri ->
-                    adapter.clear()
-                    val file = cacheUtil.copyFrom(uri)
-                    val mat = Imgcodecs.imread(
-                        file.absolutePath,
-                        Imgcodecs.IMREAD_COLOR
-                    )
-                    val channel = ArrayList<Mat>(3)
-                    Core.split(mat, channel)
-
-                    channel.forEach { mat ->
-                        bitmapUtil.bitmapFrom(mat)
-                            ?.let { bitmap ->
-                                adapter.add(ImageItem(BitmapImage(bitmap)))
-                            }
-                    }
-                }
-            }
-
-        })
+//
+//    private val pickle = PickleSingle.register(
+//        this,
+//        object : PickleSingle.Callback {
+//            override fun onResult(media: Media?) {
+//                media?.getUri()?.let { uri ->
+//                    adapter.clear()
+//                    val file = cacheUtil.copyFrom(uri)
+//                    val mat = Imgcodecs.imread(
+//                        file.absolutePath,
+//                        Imgcodecs.IMREAD_COLOR
+//                    )
+//                    val channel = ArrayList<Mat>(3)
+//                    Core.split(mat, channel)
+//
+//                    channel.forEach { mat ->
+//                        bitmapUtil.bitmapFrom(mat)
+//                            ?.let { bitmap ->
+//                                adapter.add(ImageItem(BitmapImage(bitmap)))
+//                            }
+//                    }
+//                }
+//            }
+//
+//        })
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -82,7 +75,7 @@ class ImageChannelFragment : Fragment() {
     ) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnSelect.setOnClickListener {
-            pickle.launch(Config.getDefault())
+//            pickle.launch(Config.getDefault())
         }
     }
 

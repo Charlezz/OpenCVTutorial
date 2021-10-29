@@ -1,5 +1,8 @@
 package com.charlezz.opencvtutorial.features.geometry
 
+//import com.charlezz.pickle.Config
+//import com.charlezz.pickle.PickleSingle
+//import com.charlezz.pickle.data.entity.Media
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,14 +11,11 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.charlezz.opencvtutorial.*
 import com.charlezz.opencvtutorial.databinding.FragmentPyramidBinding
-import com.charlezz.pickle.Config
-import com.charlezz.pickle.PickleSingle
-import com.charlezz.pickle.data.entity.Media
 import com.xwray.groupie.GroupieAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import org.opencv.android.Utils
-import org.opencv.core.*
-import org.opencv.imgcodecs.Imgcodecs
+import org.opencv.core.Core
+import org.opencv.core.Mat
 import org.opencv.imgproc.Imgproc
 import javax.inject.Inject
 
@@ -34,16 +34,16 @@ class PyramidFragment : Fragment() {
     private var _binding: FragmentPyramidBinding? = null
     private val binding: FragmentPyramidBinding get() = _binding!!
 
-    private val launcher = PickleSingle.register(this, object : PickleSingle.Callback {
-        override fun onResult(media: Media?) {
-            media?.let {
-
-                val file = cacheUtil.copyFrom(it.getUri())
-                var src = Imgcodecs.imread(file.absolutePath)
-                load(src)
-            }
-        }
-    })
+//    private val launcher = PickleSingle.register(this, object : PickleSingle.Callback {
+//        override fun onResult(media: Media?) {
+//            media?.let {
+//
+//                val file = cacheUtil.copyFrom(it.getUri())
+//                var src = Imgcodecs.imread(file.absolutePath)
+//                load(src)
+//            }
+//        }
+//    })
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -65,7 +65,7 @@ class PyramidFragment : Fragment() {
         load(src)
 
         binding.btn.setOnClickListener {
-            launcher.launch(Config.getDefault())
+//            launcher.launch(Config.getDefault())
         }
     }
 

@@ -2,7 +2,6 @@ package com.charlezz.opencvtutorial
 
 import android.app.Activity
 import androidx.navigation.ui.AppBarConfiguration
-import com.charlezz.pickle.util.bindingadapter.setTitle
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -7,7 +7,7 @@ import com.xwray.groupie.viewbinding.BindableItem
 
 class TextItem(
     private val text:String,
-    @ColorRes private val colorResId:Int = R.color.WT
+    @ColorRes private val colorResId:Int = R.color.white
 ) :BindableItem<ItemTextBinding>(){
     override fun bind(viewBinding: ItemTextBinding, position: Int) {
         viewBinding.textView.text = text

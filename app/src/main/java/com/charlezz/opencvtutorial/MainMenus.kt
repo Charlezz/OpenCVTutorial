@@ -9,66 +9,73 @@ import com.charlezz.opencvtutorial.features.geometry.GeometryMenus
 sealed class MainMenus {
 
     object Basic : Menu(
-        title = "기본적인 영상 처리 기법",
-        MenuDirections.from(
+        Direction.from(
             MenuFragmentDirections.actionMenuFragmentSelf(
                 BasicMenus::class.nestedClasses
                     .sortedBy { menuKclass -> (menuKclass.objectInstance as Menu).order }
                     .map { menuKclass -> menuKclass.objectInstance as Menu }
                     .toTypedArray()
-            )
+            ),
+            "기본적인 영상 처리 기법",
         ),
         0
     )
 
     object Filtering : Menu(
-        "필터링",
-        MenuDirections.from(
+        Direction.from(
             MenuFragmentDirections.actionMenuFragmentSelf(
+
                 FilteringMenus::class.nestedClasses
                     .sortedBy { menuKclass -> (menuKclass.objectInstance as Menu).order }
                     .map { menuKclass -> menuKclass.objectInstance as Menu }
                     .toTypedArray()
-            )
+            ),
+            "필터링",
         ),
         1
     )
 
-    object GeometryTransformation:Menu(
-        "기하학적 변환",
-        MenuDirections.from(
+    object GeometryTransformation : Menu(
+
+        Direction.from(
             MenuFragmentDirections.actionMenuFragmentSelf(
+
                 GeometryMenus::class.nestedClasses
                     .sortedBy { menuKclass -> (menuKclass.objectInstance as Menu).order }
                     .map { menuKclass -> menuKclass.objectInstance as Menu }
                     .toTypedArray()
-            )
+            ),
+            "기하학적 변환",
         ),
         2
     )
 
-    object Feature:Menu(
-        "영상의 특징 추출",
-        MenuDirections.from(
+    object Feature : Menu(
+
+        Direction.from(
             MenuFragmentDirections.actionMenuFragmentSelf(
+
                 FeatureMenus::class.nestedClasses
                     .sortedBy { menuKclass -> (menuKclass.objectInstance as Menu).order }
                     .map { menuKclass -> menuKclass.objectInstance as Menu }
                     .toTypedArray()
-            )
+            ),
+            "영상의 특징 추출",
         ),
         3
     )
 
-    object Binary:Menu(
-        "영상의 이진화",
-        MenuDirections.from(
+    object Binary : Menu(
+
+        Direction.from(
             MenuFragmentDirections.actionMenuFragmentSelf(
+
                 BinarizationMenus::class.nestedClasses
                     .sortedBy { menuKclass -> (menuKclass.objectInstance as Menu).order }
                     .map { menuKclass -> menuKclass.objectInstance as Menu }
                     .toTypedArray()
-            )
+            ),
+            "영상의 이진화",
         ),
         4
     )

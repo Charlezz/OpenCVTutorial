@@ -10,6 +10,11 @@
         android:name="com.charlezz.opencvtutorial.MenuFragment"
         android:label="OpenCV 예제"
         tools:layout="@layout/fragment_menu">
+<!--        <argument-->
+<!--            android:name="title"-->
+<!--            android:defaultValue="OpenCVTutorial"-->
+<!--            app:nullable="true"-->
+<!--            app:argType="string" />-->
 
         <argument
             android:name="menus"
@@ -209,10 +214,10 @@
             app:argType="integer" />
 
     </fragment>
-    <fragment android:id="@+id/sliderProcessFragment"
+    <fragment
+        android:id="@+id/sliderProcessFragment"
         android:name="com.charlezz.opencvtutorial.features.common.SliderProcessFragment"
-        android:label="SliderProcessFragment"
-        >
+        android:label="SliderProcessFragment">
         <argument
             android:name="processor"
             app:argType="com.charlezz.opencvtutorial.features.common.SliderProcessor" />
@@ -272,6 +277,10 @@
         android:id="@+id/imageListFragment"
         android:name="com.charlezz.opencvtutorial.ImageListFragment"
         android:label="ImageListFragment">
+<!--        <argument-->
+<!--            android:name="title"-->
+<!--            android:defaultValue="ImageListFragment"-->
+<!--            app:argType="string" />-->
         <argument
             android:name="images"
             app:argType="com.charlezz.opencvtutorial.Image[]" />

@@ -1,104 +1,104 @@
 package com.charlezz.opencvtutorial.features.filtering
 
+import com.charlezz.opencvtutorial.Direction
 import com.charlezz.opencvtutorial.Menu
-import com.charlezz.opencvtutorial.MenuDirections
 import com.charlezz.opencvtutorial.MenuFragmentDirections
 import com.charlezz.opencvtutorial.R
-import com.charlezz.opencvtutorial.features.basic.arithmetic.ArithmeticMenus
 import org.opencv.imgcodecs.Imgcodecs
 
 sealed class FilteringMenus {
 
     object Filter2D : Menu(
-        "기본적인 필터 적용하기",
-        MenuDirections.from(
+
+        Direction.from(
+
             MenuFragmentDirections.actionMenuFragmentToSingleProcessFragment(
                 Filter2DProcessor(),
                 R.drawable.lenna,
                 Imgcodecs.IMREAD_GRAYSCALE
-            )
+            ),"기본적인 필터 적용하기",
         ),
         0
     )
 
     object Blur : Menu(
-        "블러 적용하기",
-        MenuDirections.from(
+        Direction.from(
+
             MenuFragmentDirections.actionMenuFragmentToSingleProcessFragment(
                 BlurProcessor(),
                 R.drawable.lenna,
                 Imgcodecs.IMREAD_GRAYSCALE
-            )
+            ),"블러 적용하기",
         ),
         1
     )
 
     object GaussianBlur : Menu(
-        "가우시안 블러 적용하기",
-        MenuDirections.from(
+
+        Direction.from(
             MenuFragmentDirections.actionMenuFragmentToSingleProcessFragment(
                 GaussianBlurProcessor(),
                 R.drawable.lenna,
                 Imgcodecs.IMREAD_GRAYSCALE
-            )
+            ),"가우시안 블러 적용하기",
         ),
         2
     )
 
     object Sharpening : Menu(
-        "언샤프 필터 적용하기",
-        MenuDirections.from(
+
+        Direction.from(
             MenuFragmentDirections.actionMenuFragmentToSingleProcessFragment(
                 SharpeningProcessor(),
                 R.drawable.lenna,
                 Imgcodecs.IMREAD_GRAYSCALE
-            )
+            ),"언샤프 필터 적용하기",
         ),
         3
     )
 
     object MedianFilter: Menu(
-        "미디언 필터 적용하기",
-        MenuDirections.from(
+
+        Direction.from(
             MenuFragmentDirections.actionMenuFragmentToSingleProcessFragment(
                 MedianFilterProcessor(),
                 R.drawable.lenna_salt_pepper,
                 Imgcodecs.IMREAD_GRAYSCALE
-            )
+            ),"미디언 필터 적용하기",
         ),
         4
     )
 
     object BilateralFilter: Menu(
-        "양방향 필터 적용하기",
-        MenuDirections.from(
+
+        Direction.from(
             MenuFragmentDirections.actionMenuFragmentToSingleProcessFragment(
                 MedianFilterProcessor(),
                 R.drawable.lenna,
                 Imgcodecs.IMREAD_COLOR
-            )
+            ),"양방향 필터 적용하기",
         ),
         5
     )
 
     object CartoonFilter: Menu(
-        "카툰 필터 적용하기",
-        MenuDirections.from(
+
+        Direction.from(
             MenuFragmentDirections.actionMenuFragmentToRealtimeProcessFragment(
                 CartoonFilterProcessor(),
                 frontCamera = true
-            )
+            ),"카툰 필터 적용하기",
         ),
         6
     )
 
     object SketchFilter: Menu(
-        "스케치 필터 적용하기",
-        MenuDirections.from(
+
+        Direction.from(
             MenuFragmentDirections.actionMenuFragmentToRealtimeProcessFragment(
                 SketchFilterProcessor(),
                 frontCamera = true
-            )
+            ),"스케치 필터 적용하기",
         ),
         7
     )

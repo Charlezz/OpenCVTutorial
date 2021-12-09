@@ -1,3 +1,4 @@
+import Dependencies.applyHilt
 import Dependencies.applyNavigation
 
 plugins {
@@ -11,13 +12,13 @@ plugins {
 
 android {
     compileSdk = Dependencies.COMPILE_SDK
-    buildToolsVersion ="30.0.3"
+    buildToolsVersion = Dependencies.BUILD_TOOLS
     buildFeatures.dataBinding = true
 
     defaultConfig {
         applicationId = "com.charlezz.opencvtutorial"
-        minSdkVersion(21)
-        targetSdkVersion(Dependencies.COMPILE_SDK)
+        minSdk = Dependencies.MIN_SDK
+        targetSdk = Dependencies.TARGET_SDK
         versionCode = 1
         versionName = "1.0"
 
@@ -85,9 +86,7 @@ dependencies {
     implementation ("androidx.camera:camera-view:1.0.0-alpha30")
 
     applyNavigation()
-//    applyHilt()
-    implementation(Dependencies.Hilt.CORE)
-    kapt(Dependencies.Hilt.COMPILER)
+    applyHilt()
 
 }
 kapt {

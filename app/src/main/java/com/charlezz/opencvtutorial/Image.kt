@@ -6,9 +6,7 @@ import android.graphics.BitmapFactory
 import android.os.Parcelable
 import androidx.annotation.DrawableRes
 import org.opencv.android.Utils
-import org.opencv.core.Core
 import org.opencv.core.Mat
-import org.opencv.imgcodecs.Imgcodecs
 import org.opencv.imgproc.Imgproc
 
 

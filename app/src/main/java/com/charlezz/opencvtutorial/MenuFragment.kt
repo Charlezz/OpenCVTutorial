@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.AppBarConfiguration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.charlezz.opencvtutorial.databinding.FragmentMenuBinding
 import com.xwray.groupie.GroupieAdapter
@@ -60,6 +59,10 @@ class MenuFragment : Fragment(), MenuItem.Navigator {
     }
 
     override fun navigateTo(menu: Menu) {
-        findNavController().navigate(menu.menuDirections.id, menu.menuDirections.args)
+        val bundle = Bundle().apply {
+            putAll(menu.direction.args)
+            putString("title", menu.direction.title)
+        }
+        findNavController().navigate(menu.direction.id, bundle)
     }
 }

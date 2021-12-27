@@ -116,6 +116,10 @@
             android:id="@+id/action_menuFragment_to_sliderProcessFragment"
             app:destination="@id/sliderProcessFragment" />
 
+        <action
+            android:id="@+id/action_menuFragment_to_grabCutFragment"
+            app:destination="@id/grabCutFragment"/>
+
 
     </fragment>
 
@@ -289,5 +293,8 @@
         android:id="@+id/scannerFragment"
         android:name="com.charlezz.opencvtutorial.features.geometry.ScannerFragment"
         android:label="ScannerFragment" />
-
+    <fragment
+        android:id="@+id/grabCutFragment"
+        android:name="com.charlezz.opencvtutorial.features.detection.grabcut.GrabCutFragment"
+        android:label="GrabCutFragment"/>
 </navigation>

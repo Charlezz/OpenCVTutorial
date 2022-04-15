@@ -64,7 +64,7 @@ dependencies {
     implementation ("com.github.lisawray.groupie:groupie-viewbinding:2.9.0")
 
     //leak canary
-    debugImplementation ("com.squareup.leakcanary:leakcanary-android:2.6")
+    debugImplementation ("com.squareup.leakcanary:leakcanary-android:2.8.1")
 
     //pickle
 //    implementation("com.charlezz:pickle:+")

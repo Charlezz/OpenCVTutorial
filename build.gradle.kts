@@ -1,12 +1,3 @@
-
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-        maven("https://jitpack.io")
-    }
-}
-
 buildscript {
     repositories {
         google()
@@ -14,9 +5,14 @@ buildscript {
         maven("https://jitpack.io")
     }
     dependencies {
-        classpath ("com.android.tools.build:gradle:7.1.3")
-        classpath(Dependencies.Hilt.ANDROID_GRADLE_PLUGIN)
-        classpath ("org.jetbrains.kotlin:kotlin-gradle-plugin:${Dependencies.Kotlin.VERSION}")
-        classpath ("androidx.navigation:navigation-safe-args-gradle-plugin:${Dependencies.Navigation.VERSION}")
+        classpath(Dependencies.Android.Tools.Build.GRADLE)
+        classpath(Dependencies.Jetbrains.Kotlin.KOTLIN_GRADLE_PLUGIN)
+        classpath(Dependencies.Google.Dagger.HILT_ANDROID_GRADLE_PLUGIN)
+        classpath(Dependencies.Jetbrains.Kotlin.KOTLIN_SERIALIZATION)
+        classpath(Dependencies.AndroidX.Navigation.NAVIGATION_SAFE_ARGS_GRADLE_PLUGIN)
     }
+}
+
+tasks.register("clean", Delete::class) {
+    delete(rootProject.buildDir)
 }

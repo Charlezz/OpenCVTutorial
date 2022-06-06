@@ -1,9 +1,6 @@
-import Dependencies.applyHilt
-import Dependencies.applyNavigation
-
 plugins {
     id("com.android.application")
-    kotlin("android")
+    id("org.jetbrains.kotlin.android")
     kotlin("kapt")
     id("androidx.navigation.safeargs.kotlin")
     id("kotlin-parcelize")
@@ -45,48 +42,85 @@ android {
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.5.31")
 
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.appcompat:appcompat:1.3.1")
-    implementation("com.google.android.material:material:1.4.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.1")
-    implementation(project(":opencv"))
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
+    implementation(project(OPENCV))
+    implementation(project(DATA))
+    implementation(project(DOMAIN))
 
-    implementation("androidx.fragment:fragment-ktx:1.3.6")
+    implementation(Dependencies.AndroidX.CORE)
+    implementation(Dependencies.AndroidX.APPCOMPAT)
+    implementation(Dependencies.AndroidX.ConstraintLayout.CONSTRAINTLAYOUT)
+    implementation(Dependencies.AndroidX.Fragment.FRAGMENT_KTX)
 
 
     //groupie
-    implementation ("com.github.lisawray.groupie:groupie:2.9.0")
-    implementation ("com.github.lisawray.groupie:groupie-viewbinding:2.9.0")
+    implementation (Dependencies.Github.LISAWRAY.GROUPIE.GROUPIE)
+    implementation (Dependencies.Github.LISAWRAY.GROUPIE.GROUPIE_VIEWBINDING)
 
     //leak canary
-    debugImplementation ("com.squareup.leakcanary:leakcanary-android:2.8.1")
-
-    //pickle
-//    implementation("com.charlezz:pickle:+")
+    debugImplementation (Dependencies.SquareUp.LeakCanary.LEAKCANARY_ANDROID)
 
     //timber
-    implementation ("com.jakewharton.timber:timber:4.7.1")
+    implementation (Dependencies.JakeWharton.Timber.TIMBER)
 
     //MPAndroidChart
-    implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")
-    implementation ("org.jetbrains.kotlin:kotlin-reflect:${Dependencies.Kotlin.VERSION}")
+    implementation (Dependencies.Github.PhilJay.MPAndroidChart)
+    implementation (Dependencies.Jetbrains.Kotlin.KOTLIN_REFLECT)
 
     //CameraX
-    val camerax_version = "1.0.0"
+    val camerax_version = "1.1.0-rc02"
     // CameraX core library using camera2 implementation
     implementation ("androidx.camera:camera-camera2:$camerax_version")
     // CameraX Lifecycle Library
     implementation ("androidx.camera:camera-lifecycle:$camerax_version")
     // CameraX View class
-    implementation ("androidx.camera:camera-view:1.0.0-alpha30")
+    implementation ("androidx.camera:camera-view:$camerax_version")
 
-    applyNavigation()
-    applyHilt()
+    implementation(Dependencies.AndroidX.Navigation.NAVIGATION_COMPOSE)
+    implementation(Dependencies.AndroidX.Navigation.NAVIGATION_UI)
+    implementation(Dependencies.AndroidX.Navigation.NAVIGATION_FRAGMENT_KTX)
+
+
+    implementation(Dependencies.AndroidX.Compose.UI.UI)
+    implementation(Dependencies.AndroidX.Compose.Material3.MATERIAL3)
+    implementation(Dependencies.AndroidX.Compose.UI.UI_TOOLING_PREVIEW)
+    implementation(Dependencies.Lifecycle.LIFECYCLE_RUNTIME_KTX)
+    implementation(Dependencies.AndroidX.Activity.ACTIVITY_COMPOSE)
+    implementation(Dependencies.AndroidX.Lifecycle.LIFECYCLE_RUNTIME_KTX)
+    implementation(Dependencies.AndroidX.Activity.ACTIVITY_COMPOSE)
+    testImplementation(Dependencies.Junit.JUNIT)
+    androidTestImplementation(Dependencies.AndroidX.Test.Ext.JUNIT_KTX)
+    androidTestImplementation(Dependencies.AndroidX.Test.Espresso.ESPRESSO_CORE)
+    androidTestImplementation(Dependencies.AndroidX.Compose.UI.UI_TEST_JUNIT4)
+    debugImplementation(Dependencies.AndroidX.Compose.UI.UI_TOOLING)
+    debugImplementation(Dependencies.AndroidX.Compose.UI.UI_TEST_MANIFEST)
+
+    // compose navigation
+    implementation(Dependencies.AndroidX.Navigation.NAVIGATION_COMPOSE)
+
+    // Google Auth
+    implementation(Dependencies.Google.Android.GMS.PLAY_SERVICES_AUTH)
+
+    // Hilt
+    implementation(Dependencies.Google.Dagger.HILT_ANDROID)
+    kapt(Dependencies.Google.Dagger.HILT_COMPILER)
+    kapt(Dependencies.AndroidX.Hilt.HILT_COMPILER)
+    implementation(Dependencies.AndroidX.Hilt.HILT_NAVIGATION_COMPOSE)
+
+    // Coil
+    implementation(Dependencies.Coil.COIL_COMPOSE)
+
+    // Retrofit
+    implementation(Dependencies.SquareUp.Retrofit2.RETROFIT)
+    implementation(Dependencies.SquareUp.Retrofit2.CONVERTER_GSON)
+    implementation(Dependencies.JakeWharton.Retrofit.RETROFIT2_KOTLINX_SERIALIZATION_CONVERTER)
+    implementation(Dependencies.SquareUp.OkHttp3.OKHTTP_URLCONNECTION)
+
+    // DataStore Preferences
+    implementation(Dependencies.AndroidX.DataStore.DATASTORE_PREFERENCES)
+
+    // Kotlinx Serialization
+    implementation(Dependencies.Jetbrains.KotlinX.KOTLINX_SERIALIZATION_JSON)
 
 }
 kapt {

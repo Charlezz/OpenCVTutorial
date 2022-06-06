@@ -211,8 +211,6 @@ object Dependencies {
             const val DYNAMIC_FEATURE_FRAGMENT = "androidx.navigation:navigation-dynamic-features-fragment:$VERSION"
         }
 
-
-
     }
 
     object SquareUp{
@@ -222,7 +220,6 @@ object Dependencies {
         object LeakCanary{
             const val LEAKCANARY_ANDROID = "com.squareup.leakcanary:leakcanary-android:2.8.1"
         }
-
 
         object Retrofit2{
             const val VERSION = "2.9.0"

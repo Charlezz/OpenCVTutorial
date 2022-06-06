@@ -9,8 +9,8 @@ sealed class BinarizationMenus {
         direction = Direction.from(
             MenuFragmentDirections.actionMenuFragmentToSliderProcessFragment(
                 ThresholdProcessor(),
+                Imgcodecs.IMREAD_GRAYSCALE,
                 R.drawable.lenna,
-                Imgcodecs.IMREAD_GRAYSCALE
             ),
             "Threshold (이진화)",
         ),
@@ -29,7 +29,8 @@ sealed class BinarizationMenus {
                     BitmapImage("밥알", R.drawable.rice),
                     OtsuImage("밥알(Otsu)", R.drawable.rice)
                 )
-            ),"Otsu (자동 이진화)",
+            ),
+            "Otsu (자동 이진화)",
         ),
         order = 2
     )
@@ -48,7 +49,8 @@ sealed class BinarizationMenus {
                     OtsuImage("스도쿠(Otsu)", R.drawable.sudoku, false),
                     LocalBinarizationImage("스도쿠(지역이진화)", R.drawable.sudoku, 4, 4),
                 )
-            ),"지역 이진화",
+            ),
+            "지역 이진화",
         ),
         order = 3
     )
@@ -58,8 +60,8 @@ sealed class BinarizationMenus {
             MenuFragmentDirections.actionMenuFragmentToSliderProcessFragment(
 
                 AdaptiveThresholdProcessor(),
+                Imgcodecs.IMREAD_GRAYSCALE,
                 R.drawable.sudoku,
-                Imgcodecs.IMREAD_GRAYSCALE
             ), title = "적응형 이진화"
         ),
         order = 4
@@ -71,7 +73,8 @@ sealed class BinarizationMenus {
             MenuFragmentDirections.actionMenuFragmentToImageListFragment(
 
                 arrayOf(LabelingImage("레이블링"))
-            ),   title = "레이블링",
+            ),
+            title = "레이블링",
         ),
         order = 5
     )
@@ -80,9 +83,9 @@ sealed class BinarizationMenus {
         direction = Direction.from(
             MenuFragmentDirections.actionMenuFragmentToSliderProcessFragment(
                 MorphologyProcessor(true),
+                Imgcodecs.IMREAD_GRAYSCALE,
                 R.drawable.rice,
-                Imgcodecs.IMREAD_GRAYSCALE
-            ),title = "침식"
+            ), title = "침식"
         ),
         order = 6
     )
@@ -91,9 +94,9 @@ sealed class BinarizationMenus {
         direction = Direction.from(
             MenuFragmentDirections.actionMenuFragmentToSliderProcessFragment(
                 MorphologyProcessor(false),
+                Imgcodecs.IMREAD_GRAYSCALE,
                 R.drawable.rice,
-                Imgcodecs.IMREAD_GRAYSCALE
-            ),"팽창"
+            ), "팽창"
         ),
         order = 7
     )
@@ -110,7 +113,8 @@ sealed class BinarizationMenus {
                         5
                     ),
                 )
-            ),"쌀알 + 열기(Opening) 연산",
+            ),
+            "쌀알 + 열기(Opening) 연산",
         ),
         order = 8
     )
@@ -123,7 +127,8 @@ sealed class BinarizationMenus {
                 arrayOf(
                     ContourImage(),
                 )
-            ),title = "윤곽선 검출(쌀알)",
+            ),
+            title = "윤곽선 검출(쌀알)",
         ),
         order = 9
     )
@@ -134,9 +139,13 @@ sealed class BinarizationMenus {
             MenuFragmentDirections.actionMenuFragmentToImageListFragment(
 
                 arrayOf(
-                    ContourImage(_resId = R.drawable.milkdrop, useLocalBinarization = false),
+                    ContourImage(
+                        _resId = R.drawable.milkdrop,
+                        useLocalBinarization = false
+                    ),
                 )
-            ),title = "윤곽선 검출(물방울)",
+            ),
+            title = "윤곽선 검출(물방울)",
         ),
         order = 10
     )
@@ -148,7 +157,8 @@ sealed class BinarizationMenus {
                 arrayOf(
                     ArcLengthImage(),
                 )
-            ),title = "윤곽선 길이 검출(arcLength)",
+            ),
+            title = "윤곽선 길이 검출(arcLength)",
         ),
         order = 11
     )
@@ -161,7 +171,8 @@ sealed class BinarizationMenus {
                 arrayOf(
                     ContourAreaImage(),
                 )
-            ),title = "면적 구하기",
+            ),
+            title = "면적 구하기",
         ),
         order = 11
     )
@@ -173,7 +184,8 @@ sealed class BinarizationMenus {
                 arrayOf(
                     BoundingRectImage(),
                 )
-            ),title = "윤곽선을 감싸는 사각형",
+            ),
+            title = "윤곽선을 감싸는 사각형",
         ),
         order = 12
     )
@@ -186,7 +198,8 @@ sealed class BinarizationMenus {
                 arrayOf(
                     MinEnclosingCircleImage(),
                 )
-            ),title = "윤곽선을 감싸는 원",
+            ),
+            title = "윤곽선을 감싸는 원",
         ),
         order = 13
     )
@@ -199,7 +212,8 @@ sealed class BinarizationMenus {
                 arrayOf(
                     MinAreaRectImage(),
                 )
-            ),title = "윤곽선을 최소로 감싸는 회전된 사각형",
+            ),
+            title = "윤곽선을 최소로 감싸는 회전된 사각형",
         ),
         order = 14
     )
@@ -211,7 +225,7 @@ sealed class BinarizationMenus {
                 arrayOf(
                     MinEnclosingTriangleImage(),
                 )
-            ),title = "윤곽선을 감싸는 삼각형"
+            ), title = "윤곽선을 감싸는 삼각형"
         ),
         order = 15
     )
@@ -220,9 +234,9 @@ sealed class BinarizationMenus {
         direction = Direction.from(
             MenuFragmentDirections.actionMenuFragmentToSliderProcessFragment(
                 ApproxPolyDPProcessor(),
+                Imgcodecs.IMREAD_COLOR,
                 R.drawable.polygon,
-                Imgcodecs.IMREAD_COLOR
-            ),"근사화"
+            ), "근사화"
         ),
         order = 16
     )
@@ -234,7 +248,7 @@ sealed class BinarizationMenus {
                 arrayOf(
                     FitEllipseImage(),
                 )
-            ),title = "주어진 점에 적합한 타원 그리기"
+            ), title = "주어진 점에 적합한 타원 그리기"
         ),
         order = 17
     )
@@ -247,7 +261,7 @@ sealed class BinarizationMenus {
                     FitLineImage(),
                     FitLineImage(_resId = R.drawable.x),
                 )
-            ),title = "주어진 점에 적합한 직선을 반환"
+            ), title = "주어진 점에 적합한 직선을 반환"
         ),
         order = 18
     )
@@ -259,7 +273,7 @@ sealed class BinarizationMenus {
                 arrayOf(
                     CheckConvexImage(),
                 )
-            ),title = "컨벡스인지를 검사"
+            ), title = "컨벡스인지를 검사"
         ),
         order = 19
     )
@@ -272,7 +286,7 @@ sealed class BinarizationMenus {
                     ConvexHullImage(_resId = R.drawable.hand, useLocalBinarization = false),
                     ConvexHullImage(),
                 )
-            ),title = "주어진 점으로부터 컨벡스헐을 반환"
+            ), title = "주어진 점으로부터 컨벡스헐을 반환"
         ),
         order = 20
     )
@@ -284,7 +298,7 @@ sealed class BinarizationMenus {
                 arrayOf(
                     ConvexityDefectsImage(_resId = R.drawable.hand, useLocalBinarization = false),
                 )
-            ),title = "주어진 점과 컨벡스 헐로부터 컨벡스 디펙트를 반환"
+            ), title = "주어진 점과 컨벡스 헐로부터 컨벡스 디펙트를 반환"
         ),
         order = 21
     )

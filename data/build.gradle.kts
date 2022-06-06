@@ -26,7 +26,7 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_11.toString()
     }
-    namespace = "com.charlezz.notepad.data"
+    namespace = "com.charlezz.opencvtutorial.data"
 }
 
 dependencies {

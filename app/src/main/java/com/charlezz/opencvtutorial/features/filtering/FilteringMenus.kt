@@ -13,9 +13,9 @@ sealed class FilteringMenus {
         Direction.from(
 
             MenuFragmentDirections.actionMenuFragmentToSingleProcessFragment(
-                Filter2DProcessor(),
-                R.drawable.lenna,
-                Imgcodecs.IMREAD_GRAYSCALE
+                processor = Filter2DProcessor(),
+                image =R.drawable.lenna,
+                imreadMode =Imgcodecs.IMREAD_GRAYSCALE
             ),"기본적인 필터 적용하기",
         ),
         0
@@ -23,11 +23,10 @@ sealed class FilteringMenus {
 
     object Blur : Menu(
         Direction.from(
-
             MenuFragmentDirections.actionMenuFragmentToSingleProcessFragment(
-                BlurProcessor(),
-                R.drawable.lenna,
-                Imgcodecs.IMREAD_GRAYSCALE
+                processor = BlurProcessor(),
+                image = R.drawable.lenna,
+                imreadMode = Imgcodecs.IMREAD_GRAYSCALE
             ),"블러 적용하기",
         ),
         1
@@ -38,8 +37,8 @@ sealed class FilteringMenus {
         Direction.from(
             MenuFragmentDirections.actionMenuFragmentToSingleProcessFragment(
                 GaussianBlurProcessor(),
+                Imgcodecs.IMREAD_GRAYSCALE,
                 R.drawable.lenna,
-                Imgcodecs.IMREAD_GRAYSCALE
             ),"가우시안 블러 적용하기",
         ),
         2
@@ -50,8 +49,8 @@ sealed class FilteringMenus {
         Direction.from(
             MenuFragmentDirections.actionMenuFragmentToSingleProcessFragment(
                 SharpeningProcessor(),
+                Imgcodecs.IMREAD_GRAYSCALE,
                 R.drawable.lenna,
-                Imgcodecs.IMREAD_GRAYSCALE
             ),"언샤프 필터 적용하기",
         ),
         3
@@ -62,8 +61,8 @@ sealed class FilteringMenus {
         Direction.from(
             MenuFragmentDirections.actionMenuFragmentToSingleProcessFragment(
                 MedianFilterProcessor(),
+                Imgcodecs.IMREAD_GRAYSCALE,
                 R.drawable.lenna_salt_pepper,
-                Imgcodecs.IMREAD_GRAYSCALE
             ),"미디언 필터 적용하기",
         ),
         4
@@ -74,8 +73,8 @@ sealed class FilteringMenus {
         Direction.from(
             MenuFragmentDirections.actionMenuFragmentToSingleProcessFragment(
                 MedianFilterProcessor(),
+                Imgcodecs.IMREAD_COLOR,
                 R.drawable.lenna,
-                Imgcodecs.IMREAD_COLOR
             ),"양방향 필터 적용하기",
         ),
         5
@@ -96,7 +95,7 @@ sealed class FilteringMenus {
 
         Direction.from(
             MenuFragmentDirections.actionMenuFragmentToRealtimeProcessFragment(
-                SketchFilterProcessor(),
+                processor = SketchFilterProcessor(),
                 frontCamera = true
             ),"스케치 필터 적용하기",
         ),

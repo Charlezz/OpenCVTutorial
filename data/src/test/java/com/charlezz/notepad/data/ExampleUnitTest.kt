@@ -1,4 +1,4 @@
-package com.charlezz.notepad.data
+package com.charlezz.opencvtutorial.data
 
 import org.junit.Test
 

@@ -23,3 +23,18 @@ class BitmapUtil @Inject constructor() {
         return bmp
     }
 }
+
+fun Mat.toBitmap(code: Int? = null): Bitmap {
+    val dst = Mat()
+    this.copyTo(dst)
+    if (code != null) {
+        Imgproc.cvtColor(dst, dst, code)
+    }
+    val bmp = Bitmap.createBitmap(cols(), rows(), Bitmap.Config.ARGB_8888)
+    try {
+        Utils.matToBitmap(dst, bmp)
+    } catch (e: CvException) {
+        Timber.e(e)
+    }
+    return bmp
+}

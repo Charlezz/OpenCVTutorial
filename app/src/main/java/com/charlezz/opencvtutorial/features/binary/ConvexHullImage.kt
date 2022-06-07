@@ -55,7 +55,7 @@ class ConvexHullImage(
             }
 
             // 처음에 검출한 윤곽선 정보를 토대로 그리기
-            Imgproc.drawContours(src, contours, i, RED)
+            Imgproc.drawContours(src, contours, i, Scalar_RED)
             // 컨벡스 헐 정보를 토대로 그리기
             Imgproc.drawContours(src, listOf(MatOfPoint(*hullPoints)),0, GREEN)
 

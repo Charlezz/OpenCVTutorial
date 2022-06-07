@@ -6,15 +6,13 @@ import android.graphics.BitmapFactory
 import com.charlezz.opencvtutorial.BLUE
 import com.charlezz.opencvtutorial.BitmapUtil
 import com.charlezz.opencvtutorial.Image
-import com.charlezz.opencvtutorial.RED
+import com.charlezz.opencvtutorial.Scalar_RED
 import kotlinx.parcelize.Parcelize
 import org.opencv.android.Utils
 import org.opencv.core.Mat
 import org.opencv.core.MatOfPoint
 import org.opencv.core.Point
-import org.opencv.core.Scalar
 import org.opencv.imgproc.Imgproc
-import kotlin.random.Random
 
 /**
  * @author soohwan.ok
@@ -78,7 +76,7 @@ class MatchShapeImage constructor(
                 val found = dist < 0.1
                 if (found) {
                     // 찾은 객체는 빨간 선으로 두텁께 다시 그린다
-                    Imgproc.rectangle(bgSrc, rect, RED, 2)
+                    Imgproc.rectangle(bgSrc, rect, Scalar_RED, 2)
                 }
 
                 // dist값을 출력함
@@ -88,7 +86,7 @@ class MatchShapeImage constructor(
                     Point(rect.x.toDouble(), rect.y.toDouble() - 3),
                     Imgproc.FONT_HERSHEY_SIMPLEX,
                     1.0,
-                    if (found) RED else BLUE
+                    if (found) Scalar_RED else BLUE
                 )
             }
         }

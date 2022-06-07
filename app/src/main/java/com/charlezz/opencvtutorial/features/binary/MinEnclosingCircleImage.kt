@@ -5,7 +5,7 @@ import android.graphics.Bitmap
 import com.charlezz.opencvtutorial.BitmapUtil
 import com.charlezz.opencvtutorial.Image
 import com.charlezz.opencvtutorial.R
-import com.charlezz.opencvtutorial.RED
+import com.charlezz.opencvtutorial.Scalar_RED
 import kotlinx.parcelize.Parcelize
 import org.opencv.core.Mat
 import org.opencv.core.MatOfPoint
@@ -48,7 +48,7 @@ class MinEnclosingCircleImage(
             val radius = floatArrayOf(0f)
             val contour2f = MatOfPoint2f(*contours[i].toArray())
             Imgproc.minEnclosingCircle(contour2f, center, radius)
-            Imgproc.circle(src, center, radius[0].toInt(), RED)
+            Imgproc.circle(src, center, radius[0].toInt(), Scalar_RED)
         }
         return BitmapUtil().bitmapFrom(src)
     }

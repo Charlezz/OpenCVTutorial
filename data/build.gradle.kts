@@ -32,8 +32,6 @@ android {
 dependencies {
     implementation(project(DOMAIN))
 
-    implementation(Dependencies.SquareUp.Retrofit2.RETROFIT)
-    implementation(Dependencies.SquareUp.Retrofit2.CONVERTER_MOSHI)
     implementation(Dependencies.AndroidX.CORE)
     implementation(Dependencies.AndroidX.APPCOMPAT)
     implementation(Dependencies.Google.Android.Material.MATERIAL)

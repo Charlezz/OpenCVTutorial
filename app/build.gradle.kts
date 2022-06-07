@@ -10,7 +10,6 @@ plugins {
 android {
     compileSdk = Dependencies.COMPILE_SDK
     buildToolsVersion = Dependencies.BUILD_TOOLS
-    buildFeatures.dataBinding = true
 
     defaultConfig {
         applicationId = "com.charlezz.opencvtutorial"
@@ -37,6 +36,13 @@ android {
     }
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_11.toString()
+    }
+    buildFeatures {
+        compose = true
+        dataBinding = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = Dependencies.AndroidX.Compose.KOTLIN_COMPILER_EXTENSION_VERSION
     }
 }
 
@@ -98,9 +104,6 @@ dependencies {
     // compose navigation
     implementation(Dependencies.AndroidX.Navigation.NAVIGATION_COMPOSE)
 
-    // Google Auth
-    implementation(Dependencies.Google.Android.GMS.PLAY_SERVICES_AUTH)
-
     // Hilt
     implementation(Dependencies.Google.Dagger.HILT_ANDROID)
     kapt(Dependencies.Google.Dagger.HILT_COMPILER)
@@ -110,17 +113,6 @@ dependencies {
     // Coil
     implementation(Dependencies.Coil.COIL_COMPOSE)
 
-    // Retrofit
-    implementation(Dependencies.SquareUp.Retrofit2.RETROFIT)
-    implementation(Dependencies.SquareUp.Retrofit2.CONVERTER_GSON)
-    implementation(Dependencies.JakeWharton.Retrofit.RETROFIT2_KOTLINX_SERIALIZATION_CONVERTER)
-    implementation(Dependencies.SquareUp.OkHttp3.OKHTTP_URLCONNECTION)
-
-    // DataStore Preferences
-    implementation(Dependencies.AndroidX.DataStore.DATASTORE_PREFERENCES)
-
-    // Kotlinx Serialization
-    implementation(Dependencies.Jetbrains.KotlinX.KOTLINX_SERIALIZATION_JSON)
 
 }
 kapt {

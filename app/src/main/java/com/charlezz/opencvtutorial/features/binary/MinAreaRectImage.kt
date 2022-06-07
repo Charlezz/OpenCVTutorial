@@ -5,7 +5,7 @@ import android.graphics.Bitmap
 import com.charlezz.opencvtutorial.BitmapUtil
 import com.charlezz.opencvtutorial.Image
 import com.charlezz.opencvtutorial.R
-import com.charlezz.opencvtutorial.RED
+import com.charlezz.opencvtutorial.Scalar_RED
 import kotlinx.parcelize.Parcelize
 import org.opencv.core.*
 import org.opencv.imgproc.Imgproc
@@ -46,7 +46,7 @@ class MinAreaRectImage(
             val points: Array<Point> = arrayOf(Point(),Point(),Point(),Point())
             rotatedRect.points(points)
             for (j in points.indices) {
-                Imgproc.line(src, points[j], points[(j + 1) % 4], RED)
+                Imgproc.line(src, points[j], points[(j + 1) % 4], Scalar_RED)
             }
         }
         return BitmapUtil().bitmapFrom(src)

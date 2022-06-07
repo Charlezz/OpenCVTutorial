@@ -5,7 +5,7 @@ import android.graphics.Bitmap
 import com.charlezz.opencvtutorial.BitmapUtil
 import com.charlezz.opencvtutorial.Image
 import com.charlezz.opencvtutorial.R
-import com.charlezz.opencvtutorial.RED
+import com.charlezz.opencvtutorial.Scalar_RED
 import kotlinx.parcelize.Parcelize
 import org.opencv.core.Mat
 import org.opencv.core.MatOfPoint
@@ -55,7 +55,7 @@ class ArcLengthImage constructor(
                 src,
                 contours,
                 longestContourIdx,
-                RED,
+                Scalar_RED,
                 5,
                 Imgproc.LINE_8,
                 hierarchy,

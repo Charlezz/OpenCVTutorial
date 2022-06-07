@@ -44,7 +44,7 @@ android {
 
     externalNativeBuild {
         cmake {
-            path = file("${project.projectDir.toString()}/libcxx_helper/CMakeLists.txt")
+            path = file("${project.projectDir}/libcxx_helper/CMakeLists.txt")
         }
     }
 }

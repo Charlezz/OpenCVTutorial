@@ -1,6 +1,6 @@
 package com.charlezz.opencvtutorial.features.detection.grabcut
 
-import com.charlezz.opencvtutorial.RED
+import com.charlezz.opencvtutorial.Scalar_RED
 import org.opencv.core.Mat
 import org.opencv.core.Rect
 import org.opencv.core.Scalar
@@ -12,7 +12,7 @@ class DrawSelectionRGBUseCase @Inject constructor() {
     operator fun invoke(
         rgbSrc:Mat,
         rect:Rect,
-        color:Scalar = RED,
+        color:Scalar = Scalar_RED,
         thickness:Int = 4,
     ):Mat{
         Imgproc.cvtColor(rgbSrc, dst, Imgproc.COLOR_RGB2BGR)

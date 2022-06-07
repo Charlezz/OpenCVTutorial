@@ -5,7 +5,7 @@ import android.graphics.Bitmap
 import com.charlezz.opencvtutorial.BitmapUtil
 import com.charlezz.opencvtutorial.Image
 import com.charlezz.opencvtutorial.R
-import com.charlezz.opencvtutorial.RED
+import com.charlezz.opencvtutorial.Scalar_RED
 import kotlinx.parcelize.Parcelize
 import org.opencv.core.Mat
 import org.opencv.core.MatOfPoint
@@ -49,7 +49,7 @@ class FitEllipseImage(
             if (contours[i].rows() >= 5){
                 val contour2f = MatOfPoint2f(*contours[i].toArray())
                 val rotatedRect = Imgproc.fitEllipse(contour2f)
-                Imgproc.ellipse(src, rotatedRect, RED)
+                Imgproc.ellipse(src, rotatedRect, Scalar_RED)
             }
         }
         return BitmapUtil().bitmapFrom(src)

@@ -5,7 +5,7 @@ import android.graphics.Bitmap
 import com.charlezz.opencvtutorial.BitmapUtil
 import com.charlezz.opencvtutorial.Image
 import com.charlezz.opencvtutorial.R
-import com.charlezz.opencvtutorial.RED
+import com.charlezz.opencvtutorial.Scalar_RED
 import kotlinx.parcelize.Parcelize
 import org.opencv.core.Mat
 import org.opencv.core.MatOfPoint
@@ -56,7 +56,7 @@ class MinEnclosingTriangleImage(
                 val y2 = triangle.get((j+1)%3, 0)[1]
                 val point2 = Point(x2, y2)
 
-                Imgproc.line(src, point1, point2, RED)
+                Imgproc.line(src, point1, point2, Scalar_RED)
             }
         }
         return BitmapUtil().bitmapFrom(src)

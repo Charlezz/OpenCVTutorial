@@ -1,6 +1,6 @@
 package com.charlezz.opencvtutorial.features.binary
 
-import com.charlezz.opencvtutorial.RED
+import com.charlezz.opencvtutorial.Scalar_RED
 import com.charlezz.opencvtutorial.features.common.SliderProcessor
 import org.opencv.core.Mat
 import org.opencv.core.MatOfPoint
@@ -40,7 +40,7 @@ class ApproxPolyDPProcessor() : SliderProcessor(0F, 10F) {
 
             val points = approxCurve.toList()
             for(i in points.indices){
-                Imgproc.line(copiedSrc, points[i], points[(i+1)%points.size], RED, 2)
+                Imgproc.line(copiedSrc, points[i], points[(i+1)%points.size], Scalar_RED, 2)
             }
         }
         return copiedSrc

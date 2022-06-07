@@ -5,7 +5,7 @@ import android.graphics.Bitmap
 import com.charlezz.opencvtutorial.BitmapUtil
 import com.charlezz.opencvtutorial.Image
 import com.charlezz.opencvtutorial.R
-import com.charlezz.opencvtutorial.RED
+import com.charlezz.opencvtutorial.Scalar_RED
 import kotlinx.parcelize.Parcelize
 import org.opencv.core.Mat
 import org.opencv.core.MatOfPoint
@@ -52,8 +52,8 @@ class ContourAreaImage(
             val centerY = moments.m01 / moments.m00 - 5
             val center = Point(centerX, centerY)
 
-            Imgproc.drawContours(src, contours, i, RED)
-            Imgproc.putText(src, "$contourArea",center,Imgproc.FONT_HERSHEY_SIMPLEX, 0.5, RED)
+            Imgproc.drawContours(src, contours, i, Scalar_RED)
+            Imgproc.putText(src, "$contourArea",center,Imgproc.FONT_HERSHEY_SIMPLEX, 0.5, Scalar_RED)
         }
         return BitmapUtil().bitmapFrom(src)
     }

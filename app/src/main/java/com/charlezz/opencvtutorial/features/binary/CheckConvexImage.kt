@@ -5,7 +5,7 @@ import android.graphics.Bitmap
 import com.charlezz.opencvtutorial.BitmapUtil
 import com.charlezz.opencvtutorial.Image
 import com.charlezz.opencvtutorial.R
-import com.charlezz.opencvtutorial.RED
+import com.charlezz.opencvtutorial.Scalar_RED
 import kotlinx.parcelize.Parcelize
 import org.opencv.core.Mat
 import org.opencv.core.MatOfPoint
@@ -51,7 +51,7 @@ class CheckConvexImage(
             val center = Point(centerX, centerY)
 
             // 검출한 윤곽선 그리기
-            Imgproc.drawContours(src, contours, i, RED)
+            Imgproc.drawContours(src, contours, i, Scalar_RED)
 
             // 컨벡스 검출 정확도를 높이기 위해 윤곽선 근사화
             val contour2f = MatOfPoint2f(*contours[i].toArray())
@@ -68,9 +68,9 @@ class CheckConvexImage(
 
             // 컨벡스라면 도형위에 Convex라고 마킹, 아니면 Concave로 마킹
             if(isConvex){
-                Imgproc.putText(src, "Convex",center,Imgproc.FONT_HERSHEY_SIMPLEX, 1.0, RED)
+                Imgproc.putText(src, "Convex",center,Imgproc.FONT_HERSHEY_SIMPLEX, 1.0, Scalar_RED)
             }else{
-                Imgproc.putText(src, "Concave",center,Imgproc.FONT_HERSHEY_SIMPLEX, 1.0, RED)
+                Imgproc.putText(src, "Concave",center,Imgproc.FONT_HERSHEY_SIMPLEX, 1.0, Scalar_RED)
             }
 
         }

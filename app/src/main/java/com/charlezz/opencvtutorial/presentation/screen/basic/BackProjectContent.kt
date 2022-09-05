@@ -35,7 +35,7 @@ import kotlin.math.min
 fun BackProjectContent() {
 
     val context = LocalContext.current
-    val src by remember { mutableStateOf(Utils.loadResource(context, R.drawable.runa)) }
+    val src by remember { mutableStateOf(Utils.loadResource(context, R.drawable.runa).also { Imgproc.cvtColor(it, it, Imgproc.COLOR_BGR2RGB) }) }
     var dst by remember { mutableStateOf(src) }
     var isDone by remember { mutableStateOf(false) }
     var initPoint by remember { mutableStateOf(Point(0.0, 0.0)) }
@@ -154,7 +154,7 @@ fun BackProjectContent() {
                 }
                 .align(Alignment.CenterHorizontally)
             ,
-            bitmap = dst.toBitmap(Imgproc.COLOR_BGR2RGBA).asImageBitmap(),
+            bitmap = dst.toBitmap().asImageBitmap(),
             contentDescription = null,
             contentScale = ContentScale.FillBounds
         )

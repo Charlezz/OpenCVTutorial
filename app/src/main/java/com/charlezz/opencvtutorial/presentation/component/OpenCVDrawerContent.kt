@@ -1,22 +1,16 @@
 package com.charlezz.opencvtutorial.presentation.component
 
-import android.content.Intent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import com.charlezz.notepad.domain.model.Route
-import com.charlezz.opencvtutorial.MainActivity
 import com.charlezz.opencvtutorial.R
 import com.charlezz.opencvtutorial.navigation.Screen
 
@@ -31,6 +25,11 @@ private data class DrawerItem(
 private val drawerItems = listOf(
     DrawerItem(Icons.Filled.Home, Screen.Home),
     DrawerItem(Icons.Filled.List, Screen.Menu1Basic),
+    DrawerItem(Icons.Filled.List, Screen.Menu2Filter),
+    DrawerItem(Icons.Filled.List, Screen.Menu3GeometryTransformation),
+    DrawerItem(Icons.Filled.List, Screen.Menu4FeatureExtraction),
+    DrawerItem(Icons.Filled.List, Screen.Menu5Binarization),
+    DrawerItem(Icons.Filled.List, Screen.Menu6Extraction),
 )
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -67,22 +66,6 @@ fun OpenCVDrawerContent(
                 }
             )
         }
-        val context = LocalContext.current
-        NavigationDrawerItem(
-            icon = {
-                Icon(
-                    imageVector = Icons.Filled.Favorite,
-                    contentDescription = "Old App"
-                )
-            },
-            label = {
-                Text(text = "Old App")
-            },
-            selected = false,
-            onClick = {
-                context.startActivity(Intent(context, MainActivity::class.java))
-            }
-        )
     }
 }
 

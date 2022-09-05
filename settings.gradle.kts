@@ -16,8 +16,6 @@ dependencyResolutionManagement {
 }
 rootProject.name = "OpenCVTutorial"
 include(
-        ":app",
-        ":data",
-        ":domain",
-        ":opencv",
+    ":app",
+    ":opencv",
 )

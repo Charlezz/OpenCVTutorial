@@ -50,18 +50,13 @@ dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
     implementation(project(OPENCV))
-    implementation(project(DATA))
-    implementation(project(DOMAIN))
 
     implementation(Dependencies.AndroidX.CORE)
     implementation(Dependencies.AndroidX.APPCOMPAT)
     implementation(Dependencies.AndroidX.ConstraintLayout.CONSTRAINTLAYOUT)
+    implementation(Dependencies.AndroidX.ConstraintLayout.CONSTRAINTLAYOUT_COMPOSE)
     implementation(Dependencies.AndroidX.Fragment.FRAGMENT_KTX)
 
-
-    //groupie
-    implementation (Dependencies.Github.LISAWRAY.GROUPIE.GROUPIE)
-    implementation (Dependencies.Github.LISAWRAY.GROUPIE.GROUPIE_VIEWBINDING)
 
     //leak canary
     debugImplementation (Dependencies.SquareUp.LeakCanary.LEAKCANARY_ANDROID)
@@ -72,15 +67,15 @@ dependencies {
     //MPAndroidChart
     implementation (Dependencies.Github.PhilJay.MPAndroidChart)
     implementation (Dependencies.Jetbrains.Kotlin.KOTLIN_REFLECT)
-
-    //CameraX
-    val camerax_version = "1.1.0-rc02"
-    // CameraX core library using camera2 implementation
-    implementation ("androidx.camera:camera-camera2:$camerax_version")
-    // CameraX Lifecycle Library
-    implementation ("androidx.camera:camera-lifecycle:$camerax_version")
-    // CameraX View class
-    implementation ("androidx.camera:camera-view:$camerax_version")
+//
+//    //CameraX
+//    val camerax_version = "1.1.0-rc02"
+//    // CameraX core library using camera2 implementation
+//    implementation ("androidx.camera:camera-camera2:$camerax_version")
+//    // CameraX Lifecycle Library
+//    implementation ("androidx.camera:camera-lifecycle:$camerax_version")
+//    // CameraX View class
+//    implementation ("androidx.camera:camera-view:$camerax_version")
 
     implementation(Dependencies.AndroidX.Navigation.NAVIGATION_COMPOSE)
     implementation(Dependencies.AndroidX.Navigation.NAVIGATION_UI)
@@ -107,7 +102,7 @@ dependencies {
     // Hilt
     implementation(Dependencies.Google.Dagger.HILT_ANDROID)
     kapt(Dependencies.Google.Dagger.HILT_COMPILER)
-    kapt(Dependencies.AndroidX.Hilt.HILT_COMPILER)
+//    kapt(Dependencies.AndroidX.Hilt.HILT_COMPILER)
     implementation(Dependencies.AndroidX.Hilt.HILT_NAVIGATION_COMPOSE)
 
     // Coil

@@ -18,21 +18,12 @@ import com.charlezz.opencvtutorial.presentation.screen.menu.MenuScreen
 import kotlinx.coroutines.launch
 
 private val itemsWithOpenCVScreen: List<Screen> = listOf(
-    Screen.Menu1Basic_ImageInfo,
-    Screen.Menu1Basic_ImageChannels,
-    Screen.Menu1Basic_SimpleMask,
-    Screen.Menu1Basic_Drawing,
-    Screen.Menu1Basic_VideoCapture,
-    Screen.Menu1Basic_Brightness,
-    Screen.Menu1Basic_Add,
-    Screen.Menu1Basic_AddWeighted,
-    Screen.Menu1Basic_Subtract,
-    Screen.Menu1Basic_AbsDiff,
-    Screen.Menu1Basic_LogicalOperation,
-    Screen.Menu1Basic_HSVColor,
-    Screen.Menu1Basic_Histogram,
-    Screen.Menu1Basic_BackProject,
-    Screen.Menu1Basic_Chromakey,
+    *Screen.Menu1Basic.screens,
+    *Screen.Menu2Filter.screens,
+    *Screen.Menu3GeometryTransformation.screens,
+    *Screen.Menu4FeatureExtraction.screens,
+    *Screen.Menu5Binarization.screens,
+    *Screen.Menu6Extraction.screens,
 )
 
 /**
@@ -84,23 +75,7 @@ fun SetupNavGraph() {
                     MenuScreen(
                         navController = navController,
                         onDrawerClick = { openDrawer() },
-                        screens = listOf(
-                            Screen.Menu1Basic_ImageInfo,
-                            Screen.Menu1Basic_ImageChannels,
-                            Screen.Menu1Basic_SimpleMask,
-                            Screen.Menu1Basic_Drawing,
-                            Screen.Menu1Basic_VideoCapture,
-                            Screen.Menu1Basic_Brightness,
-                            Screen.Menu1Basic_Add,
-                            Screen.Menu1Basic_AddWeighted,
-                            Screen.Menu1Basic_Subtract,
-                            Screen.Menu1Basic_AbsDiff,
-                            Screen.Menu1Basic_LogicalOperation,
-                            Screen.Menu1Basic_HSVColor,
-                            Screen.Menu1Basic_Histogram,
-                            Screen.Menu1Basic_BackProject,
-                            Screen.Menu1Basic_Chromakey,
-                        ),
+                        screens = Screen.Menu1Basic.screens.toList(),
                     )
                 }
 
@@ -110,13 +85,54 @@ fun SetupNavGraph() {
                     MenuScreen(
                         navController = navController,
                         onDrawerClick = { openDrawer() },
+                        screens = Screen.Menu2Filter.screens.toList(),
                     )
                 }
 
-                itemsWithOpenCVScreen.forEach {
+                composable(
+                    route = Screen.Menu3GeometryTransformation.route.value
+                ) {
+                    MenuScreen(
+                        navController = navController,
+                        onDrawerClick = { openDrawer() },
+                        screens = Screen.Menu3GeometryTransformation.screens.toList(),
+                    )
+                }
+
+                composable(
+                    route = Screen.Menu4FeatureExtraction.route.value
+                ) {
+                    MenuScreen(
+                        navController = navController,
+                        onDrawerClick = { openDrawer() },
+                        screens = Screen.Menu4FeatureExtraction.screens.toList(),
+                    )
+                }
+
+                composable(
+                    route = Screen.Menu5Binarization.route.value
+                ) {
+                    MenuScreen(
+                        navController = navController,
+                        onDrawerClick = { openDrawer() },
+                        screens = Screen.Menu5Binarization.screens.toList(),
+                    )
+                }
+
+                composable(
+                    route = Screen.Menu6Extraction.route.value
+                ) {
+                    MenuScreen(
+                        navController = navController,
+                        onDrawerClick = { openDrawer() },
+                        screens = Screen.Menu6Extraction.screens.toList(),
+                    )
+                }
+
+                itemsWithOpenCVScreen.forEach { screen ->
                     composableWithOpenCVScreen(
                         navController = navController,
-                        screen = it,
+                        screen = screen,
                     )
                 }
             }
@@ -134,7 +150,7 @@ fun NavGraphBuilder.composableWithOpenCVScreen(
         OpenCVScreen(
             navController = navController,
             topBarTitle = screen.title,
-            content = screen.content
+            content = screen.content?:{}
         )
     }
 }

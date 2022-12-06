@@ -5,6 +5,8 @@ import com.charlezz.opencvtutorial.presentation.screen.basic.*
 import com.charlezz.opencvtutorial.presentation.screen.binary.*
 import com.charlezz.opencvtutorial.presentation.screen.extraction.GrabCutContent
 import com.charlezz.opencvtutorial.presentation.screen.extraction.MatchShapesContent
+import com.charlezz.opencvtutorial.presentation.screen.extraction.TemplateMatchingContent
+import com.charlezz.opencvtutorial.presentation.screen.extraction.TemplateMatchingContent2
 import com.charlezz.opencvtutorial.presentation.screen.feature.*
 import com.charlezz.opencvtutorial.presentation.screen.filter.*
 import com.charlezz.opencvtutorial.presentation.screen.geometry.*
@@ -547,7 +549,7 @@ sealed class Screen(
         title = "Extraction",
         route = Route("menu6_extraction"),
     ) {
-        val screens = arrayOf(GrabCut, MatchShapes)
+        val screens = arrayOf(GrabCut, MatchShapes, TemplateMatching,TemplateMatching2)
 
         object GrabCut : Screen(
             title = "GrabCut",
@@ -559,6 +561,17 @@ sealed class Screen(
             title = "Match Shapes",
             route = Route("menu6_extraction_match_shapes"),
             content = { MatchShapesContent() }
+        )
+
+        object TemplateMatching : Screen(
+            title = "Template Matching",
+            route = Route("menu6_extraction_template_matching"),
+            content = { TemplateMatchingContent() }
+        )
+        object TemplateMatching2 : Screen(
+            title = "Template Matching(with multiple objects)",
+            route = Route("menu6_extraction_template_matching2"),
+            content = { TemplateMatchingContent2() }
         )
     }
 }

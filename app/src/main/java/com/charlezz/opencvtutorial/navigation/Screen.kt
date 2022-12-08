@@ -3,10 +3,7 @@ package com.charlezz.opencvtutorial.navigation
 import androidx.compose.runtime.Composable
 import com.charlezz.opencvtutorial.presentation.screen.basic.*
 import com.charlezz.opencvtutorial.presentation.screen.binary.*
-import com.charlezz.opencvtutorial.presentation.screen.extraction.GrabCutContent
-import com.charlezz.opencvtutorial.presentation.screen.extraction.MatchShapesContent
-import com.charlezz.opencvtutorial.presentation.screen.extraction.TemplateMatchingContent
-import com.charlezz.opencvtutorial.presentation.screen.extraction.TemplateMatchingContent2
+import com.charlezz.opencvtutorial.presentation.screen.extraction.*
 import com.charlezz.opencvtutorial.presentation.screen.feature.*
 import com.charlezz.opencvtutorial.presentation.screen.filter.*
 import com.charlezz.opencvtutorial.presentation.screen.geometry.*
@@ -549,7 +546,8 @@ sealed class Screen(
         title = "Extraction",
         route = Route("menu6_extraction"),
     ) {
-        val screens = arrayOf(GrabCut, MatchShapes, TemplateMatching,TemplateMatching2)
+        val screens =
+            arrayOf(GrabCut, MatchShapes, TemplateMatching, TemplateMatching2, FaceDetection)
 
         object GrabCut : Screen(
             title = "GrabCut",
@@ -568,10 +566,19 @@ sealed class Screen(
             route = Route("menu6_extraction_template_matching"),
             content = { TemplateMatchingContent() }
         )
+
         object TemplateMatching2 : Screen(
             title = "Template Matching(with multiple objects)",
             route = Route("menu6_extraction_template_matching2"),
             content = { TemplateMatchingContent2() }
         )
+
+        object FaceDetection : Screen(
+            title = "FaceDetectionContent",
+            route = Route("menu6_extraction_face_detection"),
+            content = { FaceDetectionContent() }
+        )
+
+
     }
 }
